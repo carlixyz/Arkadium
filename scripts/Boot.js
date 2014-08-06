@@ -16,9 +16,6 @@ BasicGame.Boot.prototype = {
 
     create: function () {
 
-        this.game.scale.pageAlignHorizontally = true;
-        this.game.scale.pageAlignVertically = true;
-        this.game.scale.refresh();
         //  Unless you specifically know your game needs to support multi-touch I would recommend setting this to 1
         this.input.maxPointers = 1;
 
@@ -29,6 +26,8 @@ BasicGame.Boot.prototype = {
         {
             //  If you have any desktop specific settings, they can go in here
             this.scale.pageAlignHorizontally = true;
+            this.scale.pageAlignVertically = true;
+            this.scale.refresh();
         }
         else
         {
@@ -43,6 +42,7 @@ BasicGame.Boot.prototype = {
             this.scale.pageAlignHorizontally = true;
             this.scale.setScreenSize(true);
         }
+
 
         //  By this point the preloader assets have loaded to the cache, we've set the game settings
         //  So now let's start the real preloader going
