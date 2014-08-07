@@ -26,10 +26,19 @@
       <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../Sunboy/Sunboy/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="230" column="49" selection-start="10185" selection-end="10185" vertical-scroll-proportion="-22.884615" vertical-offset="3315" max-vertical-offset="10897">
+            <state line="157" column="30" selection-start="7136" selection-end="7136" vertical-scroll-proportion="-5.230769" vertical-offset="2533" max-vertical-offset="10795">
               <folding>
-                <marker date="1398964484058" expanded="true" signature="4529:4534" placeholder="..." />
+                <marker date="1407421839156" expanded="true" signature="4529:4534" placeholder="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="sunBoy.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../Sunboy/Sunboy/scripts/sunBoy.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="72" column="57" selection-start="2429" selection-end="2429" vertical-scroll-proportion="0.0" vertical-offset="1006" max-vertical-offset="1955">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -37,10 +46,8 @@
       <file leaf-file-name="index.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="31" selection-start="470" selection-end="470" vertical-scroll-proportion="0.2982456" vertical-offset="0" max-vertical-offset="855">
-              <folding>
-                <element signature="n#style#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
+            <state line="15" column="0" selection-start="490" selection-end="490" vertical-scroll-proportion="0.2982456" vertical-offset="0" max-vertical-offset="855">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -48,7 +55,7 @@
       <file leaf-file-name="Boot.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/scripts/Boot.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="49" column="2" selection-start="1748" selection-end="1748" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="935">
+            <state line="30" column="9" selection-start="971" selection-end="971" vertical-scroll-proportion="0.0" vertical-offset="37" max-vertical-offset="935">
               <folding />
             </state>
           </provider>
@@ -57,7 +64,7 @@
       <file leaf-file-name="Preloader.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/scripts/Preloader.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1411">
+            <state line="37" column="35" selection-start="1353" selection-end="1357" vertical-scroll-proportion="0.0" vertical-offset="207" max-vertical-offset="1581">
               <folding />
             </state>
           </provider>
@@ -66,7 +73,7 @@
       <file leaf-file-name="MainMenu.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/scripts/MainMenu.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="901">
+            <state line="40" column="0" selection-start="1373" selection-end="1373" vertical-scroll-proportion="0.0" vertical-offset="139" max-vertical-offset="1020">
               <folding />
             </state>
           </provider>
@@ -75,7 +82,16 @@
       <file leaf-file-name="Game.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/scripts/Game.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="61" selection-start="577" selection-end="577" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="986">
+            <state line="39" column="48" selection-start="1574" selection-end="1574" vertical-scroll-proportion="0.0" vertical-offset="136" max-vertical-offset="1156">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="padPlayer.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/scripts/padPlayer.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="24" column="0" selection-start="595" selection-end="595" vertical-scroll-proportion="0.0" vertical-offset="156" max-vertical-offset="1785">
               <folding />
             </state>
           </provider>
@@ -93,10 +109,13 @@
       <list>
         <option value="$USER_HOME$/Desktop/Full Screen Mobile/index.html" />
         <option value="$PROJECT_DIR$/game.css" />
-        <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/scripts/MainMenu.js" />
-        <option value="$PROJECT_DIR$/scripts/Boot.js" />
+        <option value="$PROJECT_DIR$/../Sunboy/Sunboy/index.html" />
         <option value="$PROJECT_DIR$/scripts/Preloader.js" />
+        <option value="$PROJECT_DIR$/scripts/Game.js" />
+        <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/scripts/padPlayer.js" />
+        <option value="$PROJECT_DIR$/scripts/Boot.js" />
       </list>
     </option>
   </component>
@@ -132,7 +151,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -165,8 +183,23 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Arkadium" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Arkadium" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="images" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -180,14 +213,6 @@
       <ConfigurationWrapper RunnerId="JavascriptDebugRunner" />
       <method />
     </configuration>
-    <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
-      <option name="VMOptions" />
-      <option name="arguments" />
-      <option name="filePath" />
-      <option name="scope" value="ALL" />
-      <option name="testName" />
-      <method />
-    </configuration>
     <configuration default="true" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
       <option name="VMOptions" />
       <option name="arguments" />
@@ -196,6 +221,14 @@
       <option name="saveOutputToFile" value="false" />
       <option name="showConsoleOnStdErr" value="false" />
       <option name="showConsoleOnStdOut" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
+      <option name="VMOptions" />
+      <option name="arguments" />
+      <option name="filePath" />
+      <option name="scope" value="ALL" />
+      <option name="testName" />
       <method />
     </configuration>
     <configuration default="true" type="JavaScriptTestRunnerKarma" factoryName="Karma" singleton="true" config-file="">
@@ -235,7 +268,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.08385417" sideWeight="0.6710671" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1546875" sideWeight="0.6710671" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39933994" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32893288" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -262,26 +295,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$USER_HOME$/Desktop/Basic/Boot.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="952" />
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Desktop/Basic/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="20" selection-start="191" selection-end="191" vertical-scroll-proportion="0.13918129" vertical-offset="0" max-vertical-offset="855" />
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Desktop/RequireJS/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="881" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/images/preloader_background.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/scripts/phaser.min.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="868" />
@@ -304,63 +317,85 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../Sunboy/Sunboy/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="230" column="49" selection-start="10185" selection-end="10185" vertical-scroll-proportion="-22.884615" vertical-offset="3315" max-vertical-offset="10897">
-          <folding>
-            <marker date="1398964484058" expanded="true" signature="4529:4534" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/Desktop/PhaserBreakout-master/js/src/MainMenu.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.446084" vertical-offset="393" max-vertical-offset="1292">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.446084" vertical-offset="393" max-vertical-offset="1292" />
       </provider>
     </entry>
     <entry file="file://$USER_HOME$/Desktop/PhaserBreakout-master/js/src/Preloader.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="2" selection-start="117" selection-end="117" vertical-scroll-proportion="-0.6594779" vertical-offset="717" max-vertical-offset="1598">
+        <state line="8" column="2" selection-start="117" selection-end="117" vertical-scroll-proportion="-0.6594779" vertical-offset="717" max-vertical-offset="1598" />
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Desktop/PhaserBreakout-master/js/src/Boot.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="26" selection-start="110" selection-end="110" vertical-scroll-proportion="0.15437004" vertical-offset="0" max-vertical-offset="986">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/Game.js">
+    <entry file="file://$PROJECT_DIR$/../Sunboy/Sunboy/scripts/gameLogic.min.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="61" selection-start="577" selection-end="577" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="986">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/Boot.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="49" column="2" selection-start="1748" selection-end="1748" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="935">
+        <state line="6" column="0" selection-start="11584" selection-end="11584" vertical-scroll-proportion="0.11751152" vertical-offset="0" max-vertical-offset="868">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/scripts/Preloader.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1411">
+        <state line="37" column="35" selection-start="1353" selection-end="1357" vertical-scroll-proportion="0.0" vertical-offset="207" max-vertical-offset="1581">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Sunboy/Sunboy/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="157" column="30" selection-start="7136" selection-end="7136" vertical-scroll-proportion="-5.230769" vertical-offset="2533" max-vertical-offset="10795">
+          <folding>
+            <marker date="1407421839156" expanded="true" signature="4529:4534" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/scripts/MainMenu.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="901">
+        <state line="40" column="0" selection-start="1373" selection-end="1373" vertical-scroll-proportion="0.0" vertical-offset="139" max-vertical-offset="1020">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/padPlayer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="24" column="0" selection-start="595" selection-end="595" vertical-scroll-proportion="0.0" vertical-offset="156" max-vertical-offset="1785">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Sunboy/Sunboy/scripts/sunBoy.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="72" column="57" selection-start="2429" selection-end="2429" vertical-scroll-proportion="0.0" vertical-offset="1006" max-vertical-offset="1955">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/Game.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="39" column="48" selection-start="1574" selection-end="1574" vertical-scroll-proportion="0.0" vertical-offset="136" max-vertical-offset="1156">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/Boot.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="30" column="9" selection-start="971" selection-end="971" vertical-scroll-proportion="0.0" vertical-offset="37" max-vertical-offset="935">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="31" selection-start="470" selection-end="470" vertical-scroll-proportion="0.2982456" vertical-offset="0" max-vertical-offset="855">
-          <folding>
-            <element signature="n#style#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
+        <state line="15" column="0" selection-start="490" selection-end="490" vertical-scroll-proportion="0.2982456" vertical-offset="0" max-vertical-offset="855">
+          <folding />
         </state>
       </provider>
     </entry>
