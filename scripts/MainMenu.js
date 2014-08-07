@@ -17,9 +17,14 @@ BasicGame.MainMenu.prototype = {
 		this.music = this.add.audio('titleMusic');
 		this.music.play();
 
-		this.add.sprite(0, 0, 'titlepage');
 
-//		this.playButton = this.add.button(400, 600, 'playButton', this.startGame, this, 'buttonOver', 'buttonOut', 'buttonOver');
+        this.background = this.add.sprite(0, 0, 'Back1');
+        this.add.sprite(this.game.world.centerX - this.game.cache.getImage('titlepage').width/2,
+            this.game.world.centerY - this.game.cache.getImage('titlepage').height, 'titlepage');
+
+
+		this.playButton = this.add.button(this.game.world.centerX - this.game.cache.getImage('playButton').width/2,
+            this.game.world.centerY + this.game.cache.getImage('playButton').height, 'playButton', this.startGame, this, 2, 1, 0);
 
 	},
 
