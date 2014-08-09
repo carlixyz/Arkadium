@@ -38,16 +38,24 @@ BasicGame.Game.prototype = {
         this.background = this.add.sprite(0, 0, 'Back1');
 
         this.padLeft = new PlayerPad(this.game);
-        this.padLeft.create(this.game);
+        this.padLeft.create(this.game, 1);
 
+        this.ball = new Ball(this.game);
+        this.ball.create(this.game);
     },
 
 	update: function () {
 
 		//	Honestly, just about anything could go here. It's YOUR game after all. Eat your heart out!
-//        game.physics.arcade.collide(this.padRight.sprite, world.sprite);
+        this.game.physics.arcade.collide(this.padLeft.sprite, this.ball.sprite);
+        this.padLeft.update(this.game);
+        this.ball.update(this.game);
 
-	},
+    },
+
+    render: function () {
+       this.ball.render(this.game);
+    },
 
 	quitGame: function (pointer) {
 

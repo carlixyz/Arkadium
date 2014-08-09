@@ -26,10 +26,8 @@
       <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../Sunboy/Sunboy/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="157" column="30" selection-start="7136" selection-end="7136" vertical-scroll-proportion="-5.230769" vertical-offset="2533" max-vertical-offset="10795">
-              <folding>
-                <marker date="1407421839156" expanded="true" signature="4529:4534" placeholder="..." />
-              </folding>
+            <state line="585" column="33" selection-start="25634" selection-end="25634" vertical-scroll-proportion="0.0" vertical-offset="9163" max-vertical-offset="10795">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -37,16 +35,25 @@
       <file leaf-file-name="sunBoy.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../Sunboy/Sunboy/scripts/sunBoy.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="72" column="57" selection-start="2429" selection-end="2429" vertical-scroll-proportion="0.0" vertical-offset="1006" max-vertical-offset="1955">
+            <state line="72" column="57" selection-start="2429" selection-end="2429" vertical-scroll-proportion="0.0" vertical-offset="1224" max-vertical-offset="1955">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="sunCoco.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../Sunboy/Sunboy/scripts/sunCoco.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="15" column="0" selection-start="287" selection-end="287" vertical-scroll-proportion="0.0" vertical-offset="255" max-vertical-offset="1173">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="0" selection-start="490" selection-end="490" vertical-scroll-proportion="0.2982456" vertical-offset="0" max-vertical-offset="855">
+            <state line="16" column="0" selection-start="534" selection-end="534" vertical-scroll-proportion="-10.461538" vertical-offset="0" max-vertical-offset="765">
               <folding />
             </state>
           </provider>
@@ -55,7 +62,7 @@
       <file leaf-file-name="Boot.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/scripts/Boot.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="30" column="9" selection-start="971" selection-end="971" vertical-scroll-proportion="0.0" vertical-offset="37" max-vertical-offset="935">
+            <state line="10" column="61" selection-start="180" selection-end="180" vertical-scroll-proportion="0.0" vertical-offset="122" max-vertical-offset="1003">
               <folding />
             </state>
           </provider>
@@ -64,7 +71,7 @@
       <file leaf-file-name="Preloader.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/scripts/Preloader.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="37" column="35" selection-start="1353" selection-end="1357" vertical-scroll-proportion="0.0" vertical-offset="207" max-vertical-offset="1581">
+            <state line="14" column="0" selection-start="200" selection-end="200" vertical-scroll-proportion="0.0" vertical-offset="238" max-vertical-offset="1530">
               <folding />
             </state>
           </provider>
@@ -73,7 +80,7 @@
       <file leaf-file-name="MainMenu.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/scripts/MainMenu.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="40" column="0" selection-start="1373" selection-end="1373" vertical-scroll-proportion="0.0" vertical-offset="139" max-vertical-offset="1020">
+            <state line="27" column="50" selection-start="989" selection-end="989" vertical-scroll-proportion="0.0" vertical-offset="139" max-vertical-offset="1020">
               <folding />
             </state>
           </provider>
@@ -82,16 +89,25 @@
       <file leaf-file-name="Game.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/scripts/Game.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="39" column="48" selection-start="1574" selection-end="1574" vertical-scroll-proportion="0.0" vertical-offset="136" max-vertical-offset="1156">
+            <state line="59" column="31" selection-start="2090" selection-end="2090" vertical-scroll-proportion="0.0" vertical-offset="411" max-vertical-offset="1292">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="padPlayer.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="padPlayer.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/scripts/padPlayer.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="24" column="0" selection-start="595" selection-end="595" vertical-scroll-proportion="0.0" vertical-offset="156" max-vertical-offset="1785">
+            <state line="52" column="47" selection-start="1984" selection-end="1984" vertical-scroll-proportion="0.6140749" vertical-offset="343" max-vertical-offset="1955">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ball.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/scripts/ball.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="36" column="53" selection-start="1253" selection-end="1253" vertical-scroll-proportion="0.0" vertical-offset="192" max-vertical-offset="1479">
               <folding />
             </state>
           </provider>
@@ -109,13 +125,14 @@
       <list>
         <option value="$USER_HOME$/Desktop/Full Screen Mobile/index.html" />
         <option value="$PROJECT_DIR$/game.css" />
-        <option value="$PROJECT_DIR$/scripts/MainMenu.js" />
         <option value="$PROJECT_DIR$/../Sunboy/Sunboy/index.html" />
+        <option value="$PROJECT_DIR$/scripts/MainMenu.js" />
         <option value="$PROJECT_DIR$/scripts/Preloader.js" />
-        <option value="$PROJECT_DIR$/scripts/Game.js" />
-        <option value="$PROJECT_DIR$/index.html" />
-        <option value="$PROJECT_DIR$/scripts/padPlayer.js" />
         <option value="$PROJECT_DIR$/scripts/Boot.js" />
+        <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/scripts/Game.js" />
+        <option value="$PROJECT_DIR$/scripts/ball.js" />
+        <option value="$PROJECT_DIR$/scripts/padPlayer.js" />
       </list>
     </option>
   </component>
@@ -213,6 +230,14 @@
       <ConfigurationWrapper RunnerId="JavascriptDebugRunner" />
       <method />
     </configuration>
+    <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
+      <option name="VMOptions" />
+      <option name="arguments" />
+      <option name="filePath" />
+      <option name="scope" value="ALL" />
+      <option name="testName" />
+      <method />
+    </configuration>
     <configuration default="true" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
       <option name="VMOptions" />
       <option name="arguments" />
@@ -221,14 +246,6 @@
       <option name="saveOutputToFile" value="false" />
       <option name="showConsoleOnStdErr" value="false" />
       <option name="showConsoleOnStdOut" value="false" />
-      <method />
-    </configuration>
-    <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
-      <option name="VMOptions" />
-      <option name="arguments" />
-      <option name="filePath" />
-      <option name="scope" value="ALL" />
-      <option name="testName" />
       <method />
     </configuration>
     <configuration default="true" type="JavaScriptTestRunnerKarma" factoryName="Karma" singleton="true" config-file="">
@@ -295,26 +312,9 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/scripts/phaser.min.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="868" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/images/title.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../Sunboy/Sunboy/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="48" column="17" selection-start="1553" selection-end="1571" vertical-scroll-proportion="0.0" vertical-offset="408" max-vertical-offset="8211" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/game.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="0" selection-start="77" selection-end="318" vertical-scroll-proportion="0.13507378" vertical-offset="0" max-vertical-offset="881">
-          <folding />
-        </state>
+        <state line="7" column="0" selection-start="77" selection-end="318" vertical-scroll-proportion="0.13507378" vertical-offset="0" max-vertical-offset="881" />
       </provider>
     </entry>
     <entry file="file://$USER_HOME$/Desktop/PhaserBreakout-master/js/src/MainMenu.js">
@@ -329,72 +329,85 @@
     </entry>
     <entry file="file://$USER_HOME$/Desktop/PhaserBreakout-master/js/src/Boot.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="26" selection-start="110" selection-end="110" vertical-scroll-proportion="0.15437004" vertical-offset="0" max-vertical-offset="986">
-          <folding />
-        </state>
+        <state line="8" column="26" selection-start="110" selection-end="110" vertical-scroll-proportion="0.15437004" vertical-offset="0" max-vertical-offset="986" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../Sunboy/Sunboy/scripts/gameLogic.min.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="0" selection-start="11584" selection-end="11584" vertical-scroll-proportion="0.11751152" vertical-offset="0" max-vertical-offset="868">
-          <folding />
-        </state>
+        <state line="6" column="0" selection-start="11584" selection-end="11584" vertical-scroll-proportion="0.11751152" vertical-offset="0" max-vertical-offset="868" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/Preloader.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="37" column="35" selection-start="1353" selection-end="1357" vertical-scroll-proportion="0.0" vertical-offset="207" max-vertical-offset="1581">
-          <folding />
-        </state>
+    <entry file="file://$PROJECT_DIR$/images/fondo2.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../Sunboy/Sunboy/index.html">
+    <entry file="file://$PROJECT_DIR$/../Sunboy/Sunboy/scripts/sunCoco.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="157" column="30" selection-start="7136" selection-end="7136" vertical-scroll-proportion="-5.230769" vertical-offset="2533" max-vertical-offset="10795">
-          <folding>
-            <marker date="1407421839156" expanded="true" signature="4529:4534" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/MainMenu.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="40" column="0" selection-start="1373" selection-end="1373" vertical-scroll-proportion="0.0" vertical-offset="139" max-vertical-offset="1020">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/padPlayer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="0" selection-start="595" selection-end="595" vertical-scroll-proportion="0.0" vertical-offset="156" max-vertical-offset="1785">
+        <state line="15" column="0" selection-start="287" selection-end="287" vertical-scroll-proportion="0.0" vertical-offset="71" max-vertical-offset="1139">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../Sunboy/Sunboy/scripts/sunBoy.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="72" column="57" selection-start="2429" selection-end="2429" vertical-scroll-proportion="0.0" vertical-offset="1006" max-vertical-offset="1955">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/Game.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="39" column="48" selection-start="1574" selection-end="1574" vertical-scroll-proportion="0.0" vertical-offset="136" max-vertical-offset="1156">
+        <state line="72" column="57" selection-start="2429" selection-end="2429" vertical-scroll-proportion="0.0" vertical-offset="632" max-vertical-offset="1955">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/scripts/Boot.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="9" selection-start="971" selection-end="971" vertical-scroll-proportion="0.0" vertical-offset="37" max-vertical-offset="935">
+        <state line="10" column="61" selection-start="180" selection-end="180" vertical-scroll-proportion="0.0" vertical-offset="122" max-vertical-offset="1003">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/Preloader.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="0" selection-start="200" selection-end="200" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1530">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/MainMenu.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="27" column="50" selection-start="989" selection-end="989" vertical-scroll-proportion="0.0" vertical-offset="139" max-vertical-offset="1020">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/Game.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="59" column="31" selection-start="2090" selection-end="2090" vertical-scroll-proportion="0.0" vertical-offset="411" max-vertical-offset="1292">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/ball.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="36" column="53" selection-start="1253" selection-end="1253" vertical-scroll-proportion="0.0" vertical-offset="192" max-vertical-offset="1479">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Sunboy/Sunboy/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="585" column="33" selection-start="25634" selection-end="25634" vertical-scroll-proportion="0.0" vertical-offset="9163" max-vertical-offset="10795">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="0" selection-start="490" selection-end="490" vertical-scroll-proportion="0.2982456" vertical-offset="0" max-vertical-offset="855">
+        <state line="16" column="0" selection-start="534" selection-end="534" vertical-scroll-proportion="-10.461538" vertical-offset="0" max-vertical-offset="765">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/padPlayer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="52" column="47" selection-start="1984" selection-end="1984" vertical-scroll-proportion="0.6140749" vertical-offset="343" max-vertical-offset="1955">
           <folding />
         </state>
       </provider>

@@ -8,9 +8,13 @@ BasicGame.Boot.prototype = {
 
     preload: function () {
 
+        this.game.physics.startSystem(Phaser.Physics.ARCADE);
+
+
         //  Here we load the assets required for our preloader (in this case a background and a loading bar)
         this.load.image('Back2', 'images/fondo2.png');
-        this.load.image('Back1', 'images/fondo1.png');
+//        this.load.image('Back1', 'images/fondo1.png');
+        this.load.spritesheet('Objs', 'images/Objetos.png',256, 256 );
 
     },
 

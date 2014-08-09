@@ -13,19 +13,22 @@ var PlayerPad = (function () {
         this.flickering = false;
     };
 
-    PlayerPad.prototype.create = function (game) {
+    PlayerPad.prototype.create = function (game, rightSide) {
 
-        this.sprite = game.add.sprite(game.world.centerX * 0.2, game.world.centerY , 'Objs');
+        if (rightSide === 1 )
+            this.sprite = game.add.sprite(game.world.centerX * 1.9, game.world.centerY , 'Objs');
+        else
+            this.sprite = game.add.sprite(game.world.centerX * 0.1, game.world.centerY , 'Objs');
 
-
+        this.sprite.scale.setTo(0.5, 0.5);
+        this.sprite.anchor.setTo(0.5, 0.5);
         game.physics.enable(this.sprite, Phaser.Physics.ARCADE);
-
-//        this.sprite.body.setSize(10, 20, 10, 8);
+        this.sprite.body.setSize(60, 160);
 
 
         //  Here we add a new animation called 'walk'
         //  Because we didn't give any other parameters it's going to make an animation from all available frames in the 'mummy' sprite sheet
-        this.sprite.animations.add('idle', [0], 1, false);
+        this.sprite.animations.add('idle', [rightSide], 1, false);
 
         //  And this starts the animation playing by using its key ("walk")
         //  30 is the frame rate (30fps)
@@ -34,62 +37,69 @@ var PlayerPad = (function () {
 //
 
         this.sprite.body.collideWorldBounds = true;
+        this.sprite.body.bounce = new Phaser.Point(0, 0.3);
         this.sprite.body.allowGravity = false;
-        this.sprite.body.immovable = false;
+        this.sprite.body.immovable = true;
 //        this.sprite.body.gravity.y = 300;
 
     };
 
 
     PlayerPad.prototype.update = function (game) {
+        this.sprite.body.velocity.y += ((game.input.activePointer.y - 32) - this.sprite.body.y) * .35 ;
+//            this.sprite.body.velocity.y = ((game.input.activePointer.y - 32) - this.sprite.body.y) * 6 ;
 
-        if (this.sprite.body.touching.down)
+        if ( Phaser.Math.fuzzyEqual(game.input.activePointer.y, this.sprite.body.y + 32, 64  ))
+            this.sprite.body.velocity.y *=  .85 ;
+//            this.sprite.body.velocity.y =  Phaser.Math.clamp(this.sprite.body.velocity.y  * .95, 30, -30) ;
+//            this.sprite.body.velocity.y =  Phaser.Math.clamp(this.sprite.body.velocity.y, -30, 30) ;
+
+
+//        if ( Phaser.Math.fuzzyEqual(game.input.activePointer.y, this.sprite.body.y + 32, 64  ))
+//            this.sprite.body.velocity.y =  Phaser.Math.clamp(this.sprite.body.velocity.y, -30, 30) ;
+//        else
+//            this.sprite.body.velocity.y += ((game.input.activePointer.y - 32) - this.sprite.body.y) * .35 ;
+////            this.sprite.body.velocity.y = ((game.input.activePointer.y - 32) - this.sprite.body.y) * 6 ;
+
+
+//        if ( Math.abs( this.sprite.body.velocity.y ) < 1 )
+//            this.sprite.body.velocity.y += Phaser.Math.sign(game.input.activePointer.y - this.sprite.body.y)   ;
+//        else
+//            this.sprite.body.velocity.y = ((game.input.activePointer.y - 32) - this.sprite.body.y) * 6  ;
+
+
+
+
+//            this.sprite.body.velocity.y += Phaser.Math.clamp(((game.input.activePointer.y - 32) - this.sprite.body.y) * .15, -300, 300) ;
+
+//            this.sprite.body.velocity.y += ((game.input.activePointer.y - 32) - this.sprite.body.y) * .05 ;
+
+
+
+        if ( game.input.keyboard.isDown(Phaser.Keyboard.UP)  )
         {
-            this.sprite.animations.play('run', 7, true);
+//            this.sprite.body.y -= 10;
+            this.sprite.body.velocity.y -= 50;
 
-            if (game.input.mousePointer.isDown || game.input.mousePointer.onTap || game.input.keyboard.isDown(Phaser.Keyboard.SPACEBAR))
-            {
-                this.sprite.body.velocity.y = -170;
-                this.sprite.body.bounce.setTo(0, 0.35);
-                this.sprite.animations.play('jump', 1, true);
-
-                if (game.cache.isSoundDecoded('jump'))
-                    audioJump.play();
-            }
         }
-        else if (game.input.mousePointer.isDown && this.sprite.body.velocity.y > 0)
+        else if ( game.input.keyboard.isDown(Phaser.Keyboard.DOWN) )
         {
-            this.sprite.body.velocity.y -= 4;
-            this.sprite.animations.play('jump', 1, true);
+//            this.sprite.body.y += 10;
+            this.sprite.body.velocity.y += 50;
+
         }
 
-
-//        if ( game.input.keyboard.isDown(Phaser.Keyboard.W) )
-//        {
-//            this.sprite.y -= 10;
-//        }
-//        else if ( game.input.keyboard.isDown(Phaser.Keyboard.S) )
-//        {
-//            this.sprite.y += 10;
-//        }
-//
-//        if ( game.input.keyboard.isDown(Phaser.Keyboard.A) )
-//        {
-//            this.sprite.x -= 10;
-//        }
-//        else if ( game.input.keyboard.isDown(Phaser.Keyboard.D) )
-//        {
-//            this.sprite.x += 10;
-//        }
     };
 
-    PlayerPad.prototype.render = function () {
+    PlayerPad.prototype.render = function (game) {
 
         // Sprite debug info
-        game.debug.spriteInfo(this.sprite, 32, 32);
+//        game.debug.spriteInfo(this.sprite, 32, 32);
         game.debug.rectangle(this.sprite.body);
-
+//
 //        game.debug.renderPhysicsBody(this.sprite.body);
+
+//        game.debug.body(this.sprite);
 
 //      game.debug.renderLocalTransformInfo(this.sprite, 32, 160);
 //      game.debug.renderWorldTransformInfo(this.sprite, 32, 290);
