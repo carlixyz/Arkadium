@@ -5,11 +5,16 @@
 var Ball = (function () {
     function Ball(game) {
         this.flickering = false;
+        this.released = false;
+        this.sparx = null;
+        this.speed = 300;
+
         return this;
     }
 
     Ball.prototype.resetIt = function () {
         this.flickering = false;
+        this.released = false;
     };
 
     Ball.prototype.create = function (game) {
@@ -34,40 +39,77 @@ var Ball = (function () {
         this.sprite.body.collideWorldBounds = true;
         this.sprite.body.allowGravity = false;
         this.sprite.body.immovable = false;
-        this.sprite.body.bounce = new Phaser.Point(.5, 1);
+        this.sprite.body.bounce = new Phaser.Point(1, 1);
 //        this.sprite.body.setCircle(10, 11, 11);
         this.sprite.body.linearDamping = 1;
-        this.force = 50;
+
+        this.sparx = game.add.emitter(game.world.centerX, game.world.centerY , 100);
+        this.sparx.makeParticles('sparks', [0, 1, 2, 3]);
+        this.sparx.setScale(1, 0.1, 1, 0.1, 3000, Phaser.Easing.Quintic.In);
+        this.sparx.gravity = 0;
+
+    };
+
+    Ball.prototype.hitSparks = function () {
+        this.sparx.x = this.sprite.x;
+        this.sparx.y = this.sprite.y;
+        this.sparx.start(true, 2000, null, 5);
+    };
+
+    Ball.prototype.hitRelease = function () {
+        if (!this.released) {
+            this.sprite.body.velocity.x = this.speed;
+            this.sprite.body.velocity.y = -this.speed;
+            this.released = true;
+        }
+
+    };
+
+
+
+    Ball.prototype.hitBounce = function ( ball, pad) {
+        var diff = 0;
+//        console.log("Bounced");
+//        this.hitSparks.apply(this);
+//        this.hitSparks();
+//        ball.body.velocity.x *= -1;
+
+        if (ball.x < pad.x)
+        {
+            //If ball is in the left hand side on the racket
+            diff = pad.x - ball.x;
+            ball.body.velocity.x = (-10 * diff);
+        }
+        else if (ball.x > pad.x)
+        {
+            //If ball is in the right hand side on the racket
+            diff = ball.x - pad.x;
+            ball.body.velocity.x = (10 * diff);
+        }
+
+
+        if (ball.y < pad.y)
+        {
+            //If ball is in the left hand side on the racket
+            diff = pad.y - ball.y;
+            ball.body.velocity.y = (-10 * diff);
+        }
+        else if (ball.y > pad.y)
+        {
+            //If ball is in the right hand side on the racket
+            diff = ball.y - pad.y;
+            ball.body.velocity.y = (10 * diff);
+        }
+        else
+        {
+            //The ball hit the center of the racket, let's add a little bit of a tragic accident(random) of his movement
+            ball.body.velocity.y = 2 + Math.random() * 8;
+        }
 
     };
 
 
     Ball.prototype.update = function (game) {
-
-
-        if ( game.input.keyboard.isDown(Phaser.Keyboard.W)  )
-        {
-            this.sprite.body.velocity.y -=  this.force;
-
-        }
-
-         if ( game.input.keyboard.isDown(Phaser.Keyboard.S) )
-        {
-            this.sprite.body.velocity.y +=  this.force;
-
-        }
-
-        if ( game.input.keyboard.isDown(Phaser.Keyboard.A)  )
-        {
-            this.sprite.body.velocity.x -=  this.force;
-
-        }
-
-         if ( game.input.keyboard.isDown(Phaser.Keyboard.D) )
-        {
-            this.sprite.body.velocity.x +=  this.force;
-
-        }
 
     };
 

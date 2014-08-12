@@ -27,6 +27,9 @@ BasicGame.Game = function (game) {
     this.ball = null;
     this.padRight = null;
     this.padLeft = null;
+    this.info = null;
+
+
 
 };
 
@@ -37,24 +40,49 @@ BasicGame.Game.prototype = {
 		//	Honestly, just about anything could go here. It's YOUR game after all. Eat your heart out!
         this.background = this.add.sprite(0, 0, 'Back1');
 
-        this.padLeft = new PlayerPad(this.game);
-        this.padLeft.create(this.game, 1);
-
         this.ball = new Ball(this.game);
         this.ball.create(this.game);
+        this.ball.hitSparks();
+        this.ball.hitRelease();
+
+        this.padLeft = new LeftPad(this.game);
+//        this.padLeft.create(this.game, new KeyboardInput(this.padLeft));
+        this.padLeft.create(this.game, new CPUInput(this.padLeft));
+
+        this.padRight = new RightPad(this.game);
+        this.padRight.create(this.game, new MouseInput(this.padRight));
+
+
+        this.info = this.game.add.retroFont('kof97', 8, 8, Phaser.RetroFont.TEXT_SET1);
+        var i = this.game.add.image(this.game.world.centerX, this.game.world.centerY *.1, this.info);
+        i.tint = 0xFF00FF;
+        i.scale.setTo(2, 2);
+        i.anchor.set(0.5, 1);
+
     },
 
 	update: function () {
+        this.info.text =  "Left Pad Score - Right Pad Score" ;
 
 		//	Honestly, just about anything could go here. It's YOUR game after all. Eat your heart out!
-        this.game.physics.arcade.collide(this.padLeft.sprite, this.ball.sprite);
-        this.padLeft.update(this.game);
+        this.game.physics.arcade.collide(this.ball.sprite, this.padLeft.sprite, this.sparkies, null, this);
+        this.game.physics.arcade.collide(this.ball.sprite, this.padRight.sprite, this.sparkies , null, this);
+
         this.ball.update(this.game);
+        this.padLeft.update(this.game);
+        this.padRight.update(this.game);
+
 
     },
 
+    sparkies: function ( ball, pad) {
+//      Still hating JS;
+        this.ball.hitSparks();
+        this.ball.hitBounce( ball, pad);
+    },
+
     render: function () {
-       this.ball.render(this.game);
+//       this.ball.render(this.game);
     },
 
 	quitGame: function (pointer) {
