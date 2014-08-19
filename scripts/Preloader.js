@@ -38,6 +38,7 @@ BasicGame.Preloader.prototype = {
         this.load.image('kof97', 'images/kof97.png');
         this.load.spritesheet('sparks', 'images/sparks.png', 64, 64);
         this.load.spritesheet('titleSparks', 'images/sparks2.png', 64, 64);
+        this.load.spritesheet('inputButtons', 'images/ArkInputs.png', 128, 128);
     },
 
 	create: function () {

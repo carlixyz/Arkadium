@@ -23,13 +23,11 @@ BasicGame.Game = function (game) {
     //	You can use any of these from any function within this State.
     //	But do consider them as being 'reserved words', i.e. don't create a property for your own game called "world" or you'll over-write the world reference.
 
-    this.bricks = null;
+    this.blocks = null;
     this.ball = null;
     this.padRight = null;
     this.padLeft = null;
     this.info = null;
-
-
 
 };
 
@@ -40,10 +38,27 @@ BasicGame.Game.prototype = {
 		//	Honestly, just about anything could go here. It's YOUR game after all. Eat your heart out!
         this.background = this.add.sprite(0, 0, 'Back1');
 
+        this.blocks =  this.game.add.group();
+        this.blocks.enableBody = true;
+        this.blocks.physicsBodyType = Phaser.Physics.ARCADE;
+        for (var row = 0; row < 6; row++)
+        {
+            for (var col = 0; col < 5; col++)
+            {
+                var c = this.blocks.create( (this.game.world.centerX - (this.game.world.centerX *.125)) + (row *  this.game.world.centerX *.05),
+                                            (this.game.world.centerY - (this.game.world.centerY * 0.5)) + (col *  this.game.world.centerY *.30), 'Objs',  this.game.rnd.integerInRange(4, 7));
+                c.name = 'Block' + i;
+                c.scale.setTo(0.5, 0.5);
+                c.body.setSize(50, 80);
+                c.anchor.setTo(0.5, 0.5);
+                c.body.immovable = true;
+            }
+        }
+
         this.ball = new Ball(this.game);
         this.ball.create(this.game);
         this.ball.hitSparks();
-        this.ball.hitRelease();
+//        this.ball.hitRelease();
 
         this.padLeft = new LeftPad(this.game);
 //        this.padLeft.create(this.game, new KeyboardInput(this.padLeft));
@@ -64,6 +79,8 @@ BasicGame.Game.prototype = {
 	update: function () {
         this.info.text =  "Left Pad Score - Right Pad Score" ;
 
+        this.game.physics.arcade.collide(this.ball.sprite, this.blocks, this.collisionHandler, null, this);
+
 		//	Honestly, just about anything could go here. It's YOUR game after all. Eat your heart out!
         this.game.physics.arcade.collide(this.ball.sprite, this.padLeft.sprite, this.sparkies, null, this);
         this.game.physics.arcade.collide(this.ball.sprite, this.padRight.sprite, this.sparkies , null, this);
@@ -75,6 +92,13 @@ BasicGame.Game.prototype = {
 
     },
 
+    collisionHandler: function ( ball, block) {
+//      Still hating JS;
+//        this.ball.hitBounce( ball, block);
+        block.kill();
+        this.ball.hitSparks();
+    },
+
     sparkies: function ( ball, pad) {
 //      Still hating JS;
         this.ball.hitSparks();
@@ -83,6 +107,15 @@ BasicGame.Game.prototype = {
 
     render: function () {
 //       this.ball.render(this.game);
+
+//        game.debug.spriteInfo(this.sprite, 32, 32);
+
+        // call renderGroup on each of the alive members
+//        this.blocks.forEach(this.renderGroup, this);
+    },
+
+    renderGroup : function(member) {
+        this.game.debug.body(member);
     },
 
 	quitGame: function (pointer) {

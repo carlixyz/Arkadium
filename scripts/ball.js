@@ -6,6 +6,7 @@ var Ball = (function () {
     function Ball(game) {
         this.flickering = false;
         this.released = false;
+        this.shadow = null;
         this.sparx = null;
         this.speed = 300;
 
@@ -19,28 +20,26 @@ var Ball = (function () {
 
     Ball.prototype.create = function (game) {
 
-        this.sprite = game.add.sprite( game.world.centerX, game.world.centerY , 'Objs');
+        this.shadow = game.add.sprite( game.world.centerX + 16, game.world.centerY + 16, 'Objs');
+        this.shadow.scale.setTo(0.5, 0.5);
+        this.shadow.anchor.setTo(0.5, 0.5);
+        this.shadow.animations.add('shade', [3], 1, false);
+        this.shadow.animations.play('shade', 1, false);
 
+        this.sprite = game.add.sprite( game.world.centerX, game.world.centerY , 'Objs');
         this.sprite.scale.setTo(0.5, 0.5);
         this.sprite.anchor.setTo(0.5, 0.5);
         game.physics.enable(this.sprite, Phaser.Physics.ARCADE);
         this.sprite.body.setSize(60, 60);
 
-
-        //  Here we add a new animation called 'walk'
-        //  Because we didn't give any other parameters it's going to make an animation from all available frames in the 'mummy' sprite sheet
         this.sprite.animations.add('ball', [2], 1, false);
-
-        //  And this starts the animation playing by using its key ("walk")
-        //  30 is the frame rate (30fps)
-        //  true means it will loop when it finishes
         this.sprite.animations.play('ball', 1, false);
+
 
         this.sprite.body.collideWorldBounds = true;
         this.sprite.body.allowGravity = false;
         this.sprite.body.immovable = false;
         this.sprite.body.bounce = new Phaser.Point(1, 1);
-//        this.sprite.body.setCircle(10, 11, 11);
         this.sprite.body.linearDamping = 1;
 
         this.sparx = game.add.emitter(game.world.centerX, game.world.centerY , 100);
@@ -64,7 +63,6 @@ var Ball = (function () {
         }
 
     };
-
 
 
     Ball.prototype.hitBounce = function ( ball, pad) {
@@ -108,9 +106,33 @@ var Ball = (function () {
 
     };
 
+    Ball.prototype.setBall = function (game) {
+        if (this.released) {
+            this.sprite.x = game.world.centerX;
+            this.sprite.y = game.world.centerY;
+            this.sprite.body.velocity.x = 0;
+            this.sprite.body.velocity.y = 0;
+            this.released = false;
+        }
+
+
+    };
 
     Ball.prototype.update = function (game) {
 
+        this.shadow.x = this.sprite.x + 8;
+        this.shadow.y = this.sprite.y + 8;
+
+        if (this.sprite.x < 25)
+        {
+            this.setBall(game);
+        }
+        else if (this.sprite.x > game.width - 25)
+        {
+            this.setBall(game);
+        }
+
+        game.input.onDown.add(this.hitRelease, this);
     };
 
     Ball.prototype.render = function (game) {

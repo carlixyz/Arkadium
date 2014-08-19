@@ -23,10 +23,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="index.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="47" selection-start="576" selection-end="576" vertical-scroll-proportion="-9.153846" vertical-offset="0" max-vertical-offset="833">
+            <state line="19" column="30" selection-start="730" selection-end="730" vertical-scroll-proportion="0.37777779" vertical-offset="0" max-vertical-offset="855">
               <folding />
             </state>
           </provider>
@@ -35,7 +35,16 @@
       <file leaf-file-name="Preloader.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/scripts/Preloader.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="39" column="42" selection-start="1498" selection-end="1509" vertical-scroll-proportion="0.0" vertical-offset="663" max-vertical-offset="1547">
+            <state line="40" column="43" selection-start="1574" selection-end="1586" vertical-scroll-proportion="0.0" vertical-offset="680" max-vertical-offset="1564">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Boot.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/scripts/Boot.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="10" column="61" selection-start="180" selection-end="180" vertical-scroll-proportion="0.0" vertical-offset="122" max-vertical-offset="1003">
               <folding />
             </state>
           </provider>
@@ -44,7 +53,7 @@
       <file leaf-file-name="MainMenu.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/scripts/MainMenu.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="26" column="59" selection-start="943" selection-end="943" vertical-scroll-proportion="0.0" vertical-offset="122" max-vertical-offset="1054">
+            <state line="30" column="159" selection-start="1304" selection-end="1304" vertical-scroll-proportion="0.0" vertical-offset="114" max-vertical-offset="1547">
               <folding />
             </state>
           </provider>
@@ -53,7 +62,7 @@
       <file leaf-file-name="Game.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/scripts/Game.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="38" column="0" selection-start="1394" selection-end="1394" vertical-scroll-proportion="0.0" vertical-offset="513" max-vertical-offset="1768">
+            <state line="75" column="0" selection-start="3103" selection-end="3103" vertical-scroll-proportion="0.0" vertical-offset="564" max-vertical-offset="2329">
               <folding />
             </state>
           </provider>
@@ -62,7 +71,7 @@
       <file leaf-file-name="LeftPad.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/scripts/LeftPad.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="0" selection-start="315" selection-end="315" vertical-scroll-proportion="0.0" vertical-offset="238" max-vertical-offset="1122">
+            <state line="21" column="62" selection-start="516" selection-end="540" vertical-scroll-proportion="0.0" vertical-offset="238" max-vertical-offset="1122">
               <folding />
             </state>
           </provider>
@@ -71,7 +80,7 @@
       <file leaf-file-name="RightPad.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/scripts/RightPad.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="0" selection-start="173" selection-end="173" vertical-scroll-proportion="0.0" vertical-offset="340" max-vertical-offset="1513">
+            <state line="71" column="47" selection-start="2368" selection-end="2368" vertical-scroll-proportion="0.0" vertical-offset="632" max-vertical-offset="1513">
               <folding />
             </state>
           </provider>
@@ -95,20 +104,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CPUInput.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/scripts/CPUInput.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="35" column="23" selection-start="1203" selection-end="1203" vertical-scroll-proportion="0.0" vertical-offset="595" max-vertical-offset="816">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ball.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="ball.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/scripts/ball.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="47" column="42" selection-start="1654" selection-end="1654" vertical-scroll-proportion="0.4971623" vertical-offset="361" max-vertical-offset="2193">
-              <folding />
+            <state line="32" column="0" selection-start="976" selection-end="1017" vertical-scroll-proportion="0.0" vertical-offset="326" max-vertical-offset="2567">
+              <folding>
+                <marker date="1407859916942" expanded="true" signature="3642:3727" placeholder="//..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -134,10 +136,10 @@
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/scripts/LeftPad.js" />
         <option value="$PROJECT_DIR$/scripts/CPUInput.js" />
-        <option value="$PROJECT_DIR$/scripts/Preloader.js" />
-        <option value="$PROJECT_DIR$/scripts/Game.js" />
-        <option value="$PROJECT_DIR$/scripts/MainMenu.js" />
         <option value="$PROJECT_DIR$/scripts/ball.js" />
+        <option value="$PROJECT_DIR$/scripts/Game.js" />
+        <option value="$PROJECT_DIR$/scripts/Preloader.js" />
+        <option value="$PROJECT_DIR$/scripts/MainMenu.js" />
       </list>
     </option>
   </component>
@@ -173,7 +175,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -206,8 +207,23 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Arkadium" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Arkadium" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="images" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -306,7 +322,9 @@
     <entry file="file://$PROJECT_DIR$/scripts/ball.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="75" column="27" selection-start="2312" selection-end="2312" vertical-scroll-proportion="0.0" vertical-offset="599" max-vertical-offset="2176">
-          <folding />
+          <folding>
+            <marker date="1407859916942" expanded="true" signature="3642:3727" placeholder="//..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -330,37 +348,25 @@
         <state line="585" column="33" selection-start="25634" selection-end="25634" vertical-scroll-proportion="-30.076923" vertical-offset="9163" max-vertical-offset="10795" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/RightPad.js">
+    <entry file="file://$PROJECT_DIR$/scripts/CPUInput.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="0" selection-start="173" selection-end="173" vertical-scroll-proportion="0.0" vertical-offset="340" max-vertical-offset="1513">
+        <state line="35" column="23" selection-start="1203" selection-end="1203" vertical-scroll-proportion="0.6753689" vertical-offset="0" max-vertical-offset="881">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/Boot.js">
+    <entry file="file://$PROJECT_DIR$/scripts/ball.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="61" selection-start="180" selection-end="180" vertical-scroll-proportion="0.05448354" vertical-offset="122" max-vertical-offset="1003">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/LeftPad.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="0" selection-start="315" selection-end="315" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1122">
-          <folding />
+        <state line="32" column="0" selection-start="976" selection-end="1017" vertical-scroll-proportion="0.0" vertical-offset="326" max-vertical-offset="2567">
+          <folding>
+            <marker date="1407859916942" expanded="true" signature="3642:3727" placeholder="//..." />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/scripts/KeyboardInput.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="23" column="9" selection-start="980" selection-end="980" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="578">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/CPUInput.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="35" column="23" selection-start="1203" selection-end="1203" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="816">
           <folding />
         </state>
       </provider>
@@ -372,37 +378,51 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/RightPad.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="71" column="47" selection-start="2368" selection-end="2368" vertical-scroll-proportion="0.0" vertical-offset="632" max-vertical-offset="1513">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/LeftPad.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="62" selection-start="516" selection-end="540" vertical-scroll-proportion="0.0" vertical-offset="238" max-vertical-offset="1122">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/Boot.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="61" selection-start="180" selection-end="180" vertical-scroll-proportion="0.0" vertical-offset="122" max-vertical-offset="1003">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/scripts/Preloader.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="39" column="42" selection-start="1498" selection-end="1509" vertical-scroll-proportion="0.0" vertical-offset="168" max-vertical-offset="1547">
+        <state line="40" column="43" selection-start="1574" selection-end="1586" vertical-scroll-proportion="0.0" vertical-offset="680" max-vertical-offset="1564">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/scripts/Game.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="38" column="0" selection-start="1394" selection-end="1394" vertical-scroll-proportion="0.0" vertical-offset="513" max-vertical-offset="1768">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="47" selection-start="576" selection-end="576" vertical-scroll-proportion="-9.153846" vertical-offset="0" max-vertical-offset="833">
+        <state line="75" column="0" selection-start="3103" selection-end="3103" vertical-scroll-proportion="0.0" vertical-offset="564" max-vertical-offset="2329">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/scripts/MainMenu.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="59" selection-start="943" selection-end="943" vertical-scroll-proportion="0.0" vertical-offset="122" max-vertical-offset="1054">
+        <state line="30" column="159" selection-start="1304" selection-end="1304" vertical-scroll-proportion="0.0" vertical-offset="114" max-vertical-offset="1547">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/ball.js">
+    <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="47" column="42" selection-start="1654" selection-end="1654" vertical-scroll-proportion="0.4971623" vertical-offset="361" max-vertical-offset="2193">
+        <state line="19" column="30" selection-start="730" selection-end="730" vertical-scroll-proportion="0.37777779" vertical-offset="0" max-vertical-offset="855">
           <folding />
         </state>
       </provider>
