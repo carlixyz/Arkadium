@@ -4,9 +4,9 @@ BasicGame.MainMenu = function (game) {
 	this.playButton = null;
 
 	this.leftInputButton = null;
-    this.leftInputCode = 1;         // 0, 1, 2, 3
+//    this.leftInputCode = 1;         // 0, 1, 2, 3
     this.rightInputButton = null;
-    this.rightInputCode = 0;         // 0, 1, 2, 3
+//    this.rightInputCode = 0;         // 0, 1, 2, 3
 
 	this.Title = null;
 };
@@ -16,9 +16,6 @@ BasicGame.MainMenu.prototype = {
 		//	We've already preloaded our assets, so let's kick right into the Main Menu itself.
 		//	Here all we're doing is playing some music and adding a picture and button
 		//	Naturally I expect you to do something significantly better :)
-
-		this.music = this.add.audio('titleMusic');
-		this.music.play();
 
         this.background = this.add.sprite(0, 0, 'Back2');
 
@@ -55,27 +52,22 @@ BasicGame.MainMenu.prototype = {
 
     swapInputLeft: function ( pointer) {
 
-        this.leftInputCode++;
-        this.leftInputCode %= 4;
-
-        this.leftInputButton.setFrames(2 +(4 * this.leftInputCode) , 1+(4 * this.leftInputCode), 0+(4 * this.leftInputCode), 2 +(4 * this.leftInputCode));
-//        this.inputButton = this.add.button( this.game.world.centerX * 0.25, this.game.world.centerY *1.5, 'inputButtons', this.swapInput, this, 2 +(4 * 1) , 1+(4 * 1), 0+(4 * 1), 2 +(4 * 1));
-
-        //	Ok, the Play Button has been clicked or touched, so let's stop the music (otherwise it'll carry on playing)
-//        this.music.stop();
+        BasicGame.leftInputCode++;
+        BasicGame.leftInputCode %= 4;
+        this.leftInputButton.setFrames(2 +(4 * BasicGame.leftInputCode) , 1+(4 * BasicGame.leftInputCode), 0+(4 * BasicGame.leftInputCode), 2 +(4 * BasicGame.leftInputCode));
     },
 
     swapInputRight: function ( pointer) {
 
-        this.rightInputCode++;
-        this.rightInputCode %= 4;
-        this.rightInputButton.setFrames(2 +(4 * this.rightInputCode) , 1+(4 * this.rightInputCode), 0+(4 * this.rightInputCode), 2 +(4 * this.rightInputCode));
+        BasicGame.rightInputCode++;
+        BasicGame.rightInputCode %= 4;
+        this.rightInputButton.setFrames(2 +(4 * BasicGame.rightInputCode) , 1+(4 * BasicGame.rightInputCode), 0+(4 * BasicGame.rightInputCode), 2 +(4 * BasicGame.rightInputCode));
     },
 
 	startGame: function (pointer) {
 
 		//	Ok, the Play Button has been clicked or touched, so let's stop the music (otherwise it'll carry on playing)
-		this.music.stop();
+//		this.music.stop();
 
 		//	And start the actual game
 		this.state.start('Game');

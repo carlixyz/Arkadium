@@ -114,8 +114,6 @@ var Ball = (function () {
             this.sprite.body.velocity.y = 0;
             this.released = false;
         }
-
-
     };
 
     Ball.prototype.update = function (game) {
@@ -123,13 +121,17 @@ var Ball = (function () {
         this.shadow.x = this.sprite.x + 8;
         this.shadow.y = this.sprite.y + 8;
 
-        if (this.sprite.x < 25)
+        if (this.sprite.x < 25)                     // If Ball escapes from left
         {
-            this.setBall(game);
+            this.setBall(game);                     // Point for Right player
+            BasicGame.rightScore += 1;
+            BasicGame.crush.play();
         }
-        else if (this.sprite.x > game.width - 25)
+        else if (this.sprite.x > game.width - 25)   // if Ball escapes from right
         {
-            this.setBall(game);
+            this.setBall(game);                     // Point for Left Player
+            BasicGame.leftScore += 1;
+            BasicGame.crush.play();
         }
 
         game.input.onDown.add(this.hitRelease, this);

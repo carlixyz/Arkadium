@@ -28,6 +28,10 @@ BasicGame.Game = function (game) {
     this.padRight = null;
     this.padLeft = null;
     this.info = null;
+    this.C1 = null;
+    this.C2 = null;
+    this.C3 = null;
+    this.C4 = null;
 
 };
 
@@ -37,6 +41,11 @@ BasicGame.Game.prototype = {
 
 		//	Honestly, just about anything could go here. It's YOUR game after all. Eat your heart out!
         this.background = this.add.sprite(0, 0, 'Back1');
+
+        this.C1 = this.add.audio('Cling1');
+        this.C2 = this.add.audio('Cling2');
+        this.C3 = this.add.audio('Cling3');
+        this.C4 = this.add.audio('Cling4');
 
         this.blocks =  this.game.add.group();
         this.blocks.enableBody = true;
@@ -55,18 +64,48 @@ BasicGame.Game.prototype = {
             }
         }
 
+        BasicGame.leftScore = 0;
+        BasicGame.rightScore = 0;
+
+
         this.ball = new Ball(this.game);
         this.ball.create(this.game);
         this.ball.hitSparks();
 //        this.ball.hitRelease();
 
         this.padLeft = new LeftPad(this.game);
-//        this.padLeft.create(this.game, new KeyboardInput(this.padLeft));
-        this.padLeft.create(this.game, new CPUInput(this.padLeft));
+        switch (BasicGame.leftInputCode)
+        {
+            case 0:
+                this.padLeft.create(this.game, new MouseInput(this.padLeft));
+                break;
+            case 1:
+                this.padLeft.create(this.game, new CPUInput(this.padLeft));
+                break;
+            case 2:
+                this.padLeft.create(this.game, new KeyboardInput(this.padLeft));
+                break;
+            case 3:
+                this.padLeft.create(this.game, new ASDWInput(this.padLeft));
+                break;
+        }
 
         this.padRight = new RightPad(this.game);
-        this.padRight.create(this.game, new MouseInput(this.padRight));
-
+        switch (BasicGame.rightInputCode)
+        {
+            case 0:
+                this.padRight.create(this.game, new MouseInput(this.padRight));
+                break;
+            case 1:
+                this.padRight.create(this.game, new CPUInput(this.padRight));
+                break;
+            case 2:
+                this.padRight.create(this.game, new KeyboardInput(this.padRight));
+                break;
+            case 3:
+                this.padRight.create(this.game, new ASDWInput(this.padRight));
+                break;
+        }
 
         this.info = this.game.add.retroFont('kof97', 8, 8, Phaser.RetroFont.TEXT_SET1);
         var i = this.game.add.image(this.game.world.centerX, this.game.world.centerY *.1, this.info);
@@ -77,7 +116,7 @@ BasicGame.Game.prototype = {
     },
 
 	update: function () {
-        this.info.text =  "Left Pad Score - Right Pad Score" ;
+        this.info.text =  " " + BasicGame.leftScore +  " - " + BasicGame.rightScore +  " ";
 
         this.game.physics.arcade.collide(this.ball.sprite, this.blocks, this.collisionHandler, null, this);
 
@@ -89,7 +128,8 @@ BasicGame.Game.prototype = {
         this.padLeft.update(this.game);
         this.padRight.update(this.game);
 
-
+        if ( this.input.keyboard.isDown(Phaser.Keyboard.ESC) )
+            this.state.start('MainMenu');
     },
 
     collisionHandler: function ( ball, block) {
@@ -97,19 +137,19 @@ BasicGame.Game.prototype = {
 //        this.ball.hitBounce( ball, block);
         block.kill();
         this.ball.hitSparks();
+        this.ballSound();
+
     },
 
     sparkies: function ( ball, pad) {
-//      Still hating JS;
         this.ball.hitSparks();
         this.ball.hitBounce( ball, pad);
+        this.ballSound();
     },
 
     render: function () {
 //       this.ball.render(this.game);
-
 //        game.debug.spriteInfo(this.sprite, 32, 32);
-
         // call renderGroup on each of the alive members
 //        this.blocks.forEach(this.renderGroup, this);
     },
@@ -126,6 +166,25 @@ BasicGame.Game.prototype = {
 		//	Then let's go back to the main menu.
 		this.state.start('MainMenu');
 
-	}
+	},
+
+
+    ballSound: function() {
+        switch( this.game.rnd.between(1,4) )
+        {
+            case 1:
+                this.C1.play();
+                break;
+            case 2:
+                this.C2.play();
+                break;
+            case 3:
+                this.C3.play();
+                break;
+            case 4:
+                this.C4.play();
+                break;
+        }
+    }
 
 };
