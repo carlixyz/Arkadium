@@ -128,6 +128,20 @@ BasicGame.Game.prototype = {
         this.padLeft.update(this.game);
         this.padRight.update(this.game);
 
+        if (this.ball.released !== true )
+        {
+            if (this.ball.launchSide == -1)
+            {
+                this.ball.sprite.x = this.game.width - 70;
+                this.ball.sprite.y = this.padRight.sprite.y;
+            }
+            if (this.ball.launchSide == +1)
+            {
+                this.ball.sprite.x =  70;
+                this.ball.sprite.y = this.padLeft.sprite.y;
+            }
+        }
+
         if ( this.input.keyboard.isDown(Phaser.Keyboard.ESC) )
             this.state.start('MainMenu');
     },

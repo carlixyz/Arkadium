@@ -9,6 +9,7 @@ var Ball = (function () {
         this.shadow = null;
         this.sparx = null;
         this.speed = 300;
+        this.launchSide = 0; // -1 left / +1 Right
 
         return this;
     }
@@ -56,10 +57,12 @@ var Ball = (function () {
     };
 
     Ball.prototype.hitRelease = function () {
-        if (!this.released) {
+        if (!this.released)
+        {
             this.sprite.body.velocity.x = this.speed;
             this.sprite.body.velocity.y = -this.speed;
             this.released = true;
+            this.launchSide = 0;
         }
 
     };
@@ -121,17 +124,34 @@ var Ball = (function () {
         this.shadow.x = this.sprite.x + 8;
         this.shadow.y = this.sprite.y + 8;
 
+//        if (this.released !== true )
+//        {
+//            if (this.launchSide == -1)
+//            {
+//                this.sprite.x = game.width - 70;
+//                this.sprite.y = padRight.sprite.y;
+//            }
+//
+//            if (this.launchSide == +1)
+//            {
+//                this.sprite.x =  70;
+//                this.sprite.y = padLeft.sprite.y;
+//            }
+//        }
+
         if (this.sprite.x < 25)                     // If Ball escapes from left
         {
             this.setBall(game);                     // Point for Right player
             BasicGame.rightScore += 1;
             BasicGame.crush.play();
+            this.launchSide = -1;
         }
         else if (this.sprite.x > game.width - 25)   // if Ball escapes from right
         {
             this.setBall(game);                     // Point for Left Player
             BasicGame.leftScore += 1;
             BasicGame.crush.play();
+            this.launchSide = +1;
         }
 
         game.input.onDown.add(this.hitRelease, this);
