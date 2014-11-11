@@ -19,8 +19,7 @@ BasicGame.Congratulations.prototype = {
 		//
 		//     game.load.image('bg', 'assets/images/bg_prerendered.png');    game.load.image('bg', 'assets/images/bg_prerendered.png');    game.load.image('bg', 'assets/images/bg_prerendered.png');sic and adding a picture and button
 		//	Naturally I expect you to do something significantly better :)
-
-        this.game.add.sprite(0, 0, 'bg');
+        this.background = this.add.sprite(0, 0, 'Back3');
 
 		//this.music = this.add.audio('titleMusic');
 		//this.music.play();
@@ -29,12 +28,23 @@ BasicGame.Congratulations.prototype = {
 		this.logo = this.add.sprite(this.game.world.centerX, 140, 'logo');
         this.logo.anchor.setTo(0.5, 0.5);
 
-        //add text
-        this.gameMessageText = this.add.text(this.game.world.centerX, 280, 'CONGLATURATION !!!', { font: "20px Arial", fill: "#000000", align: "center" });
-        this.gameMessageText.anchor.setTo(0.5, 0);
 
-        this.gameMessageText = this.add.text(this.game.world.centerX, 320, 'A winner is you!', { font: "20px Arial", fill: "#000000", align: "center" });
-        this.gameMessageText.anchor.setTo(0.5, 0);
+        //add text
+        this.gameMessageText = this.game.add.retroFont('kof97', 8, 8, Phaser.RetroFont.TEXT_SET1);
+        var i = this.game.add.image(this.game.world.centerX, this.game.world.centerY *.75, this.gameMessageText);
+        i.tint = 0xFF00FF;
+
+        if ( BasicGame.leftScore > 10 )
+            this.gameMessageText.text =  " " + 'CONGLATURATIONS !!!' +  " - " + 'A winner is Left Player!'  ;
+        if ( BasicGame.rightScore > 10 )
+            this.gameMessageText.text =  " " + 'CONGLATURATIONS !!!' +  " - " + 'A winner is Right Player!' ;
+
+        BasicGame.leftScore = 0;
+        BasicGame.rightScore = 0;
+
+        i.scale.setTo(2, 2);
+        i.anchor.set(0.5, 1);
+
 
         //add a click handler
         this.game.input.onDown.add(this.click, this);

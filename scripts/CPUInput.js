@@ -13,14 +13,24 @@ var CPUInput = (function () {
     }
 
     CPUInput.prototype.create = function (game) {
-        this.BallRef = game.state.getCurrentState().ball;
+//        this.BallRef = game.state.getCurrentState().ball;
+        this.BallRef = game.state.getCurrentState().balls[0];
+
+//        this.BallRef = BasicGame.balls[0];
         this.PadCPU = this.Client;
 
     };
 
+
     CPUInput.prototype.updateInput = function (game) {
 //        console.log("This is " + this.PadCPU.sprite.y );
 //        console.log("Ball is " + this.BallRef.sprite.Y );
+
+        if ( !this.BallRef.active )
+            for (var i = 0, total = game.state.getCurrentState().balls.length ; i < total; i++ )
+                if (game.state.getCurrentState().balls[i].active )
+                    this.BallRef = game.state.getCurrentState().balls[i];
+
 
         //Control the computer's pad
         if((this.PadCPU.sprite.y - this.BallRef.sprite.y) < -15)

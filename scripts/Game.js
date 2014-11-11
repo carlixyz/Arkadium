@@ -23,8 +23,11 @@ BasicGame.Game = function (game) {
     //	You can use any of these from any function within this State.
     //	But do consider them as being 'reserved words', i.e. don't create a property for your own game called "world" or you'll over-write the world reference.
 
+//    this.ballGroup = null;
+//    this.ball = null;
     this.blocks = null;
-    this.ball = null;
+    this.balls = null;
+    this.ballsAmount = 3;
     this.padRight = null;
     this.padLeft = null;
     this.info = null;
@@ -32,6 +35,7 @@ BasicGame.Game = function (game) {
     this.C2 = null;
     this.C3 = null;
     this.C4 = null;
+    this.sparx = null;
 
 };
 
@@ -67,11 +71,32 @@ BasicGame.Game.prototype = {
         BasicGame.leftScore = 0;
         BasicGame.rightScore = 0;
 
+        this.sparx = this.game.add.emitter(this.game.world.centerX, this.game.world.centerY , 100);
+        this.sparx.makeParticles('sparks', [0, 1, 2, 3]);
+        this.sparx.setScale(1, 0.1, 1, 0.1, 3000, Phaser.Easing.Quintic.In);
+        this.sparx.gravity = 0;
 
-        this.ball = new Ball(this.game);
-        this.ball.create(this.game);
-        this.ball.hitSparks();
-//        this.ball.hitRelease();
+
+
+        this.balls = [3];
+        for (var j = 0; j < 3; j++)
+        {
+            this.balls[j] = new Ball(this.game);
+            this.balls[j].create(this.game);
+        }
+
+        this.hitSparks(this.balls[0].sprite.x, this.balls[0].sprite.y);
+        this.balls[0].setActive(true);
+        this.balls[1].setActive(true);
+        this.balls[2].setActive(true);
+        this.ballsAmount = 3;
+
+
+
+//        this.ball = new Ball(this.game);
+//        this.ball.create(this.game);
+//        this.hitSparks(this.ball.sprite.x, this.ball.sprite.y);
+////        this.ball.hitRelease();
 
         this.padLeft = new LeftPad(this.game);
         switch (BasicGame.leftInputCode)
@@ -116,48 +141,102 @@ BasicGame.Game.prototype = {
     },
 
 	update: function () {
-        this.info.text =  " " + BasicGame.leftScore +  " - " + BasicGame.rightScore +  " ";
 
-        this.game.physics.arcade.collide(this.ball.sprite, this.blocks, this.collisionHandler, null, this);
-
-		//	Honestly, just about anything could go here. It's YOUR game after all. Eat your heart out!
-        this.game.physics.arcade.collide(this.ball.sprite, this.padLeft.sprite, this.sparkies, null, this);
-        this.game.physics.arcade.collide(this.ball.sprite, this.padRight.sprite, this.sparkies , null, this);
-
-        this.ball.update(this.game);
         this.padLeft.update(this.game);
         this.padRight.update(this.game);
 
-        if (this.ball.released !== true )
+        for ( var j = 0; j < 3 ; j++)
         {
-            if (this.ball.launchSide == -1)
+            ballRef = this.balls[j];
+
+            if (ballRef.active)
             {
-                this.ball.sprite.x = this.game.width - 70;
-                this.ball.sprite.y = this.padRight.sprite.y;
-            }
-            if (this.ball.launchSide == +1)
-            {
-                this.ball.sprite.x =  70;
-                this.ball.sprite.y = this.padLeft.sprite.y;
+                ballRef.update(this.game);
+
+                this.game.physics.arcade.collide(ballRef.sprite, this.blocks, this.collisionHandler, null, this);
+                this.game.physics.arcade.collide(ballRef.sprite, this.padLeft.sprite, this.hitBouncePad, null, this);
+                this.game.physics.arcade.collide(ballRef.sprite, this.padRight.sprite, this.hitBouncePad , null, this);
+
+                if (ballRef.released !== true )
+                {
+                    if (ballRef.launchSide == 1)
+                    {
+                        ballRef.sprite.x = this.game.width -70;
+                        ballRef.sprite.y = this.padRight.sprite.y;
+                    }
+                    if (ballRef.launchSide == -1)
+                    {
+                        ballRef.sprite.x =  70;
+                        ballRef.sprite.y = this.padLeft.sprite.y;
+                    }
+                }
             }
         }
 
+
+//        this.info.text =  " " + BasicGame.leftScore +  " - " + BasicGame.rightScore +  " " + this.ballsAmount;
+        this.info.text =  " " + BasicGame.leftScore +  " - " + BasicGame.rightScore ;
+
         if ( this.input.keyboard.isDown(Phaser.Keyboard.ESC) )
             this.state.start('MainMenu');
+
+        if ( BasicGame.leftScore > 10 || BasicGame.rightScore > 10 )
+            this.state.start('Congratulations');
     },
 
     collisionHandler: function ( ball, block) {
-//      Still hating JS;
+//      Now I understand but Still hating JS;
 //        this.ball.hitBounce( ball, block);
         block.kill();
-        this.ball.hitSparks();
-        this.ballSound();
-
+        this.hitSparks(ball.x, ball.y);
     },
 
-    sparkies: function ( ball, pad) {
-        this.ball.hitSparks();
-        this.ball.hitBounce( ball, pad);
+    hitBouncePad : function ( ball, pad) {
+        var diff = 0;
+//        console.log("Bounced");
+//        this.hitSparks.apply(this);
+//        this.hitSparks();
+//        ball.body.velocity.x *= -1;
+
+        this.hitSparks(ball.x, ball.y);
+
+        if (ball.x < pad.x)
+        {
+            //If ball is in the left hand side on the racket
+            diff = pad.x - ball.x;
+            ball.body.velocity.x = (-10 * diff);
+        }
+        else if (ball.x > pad.x)
+        {
+            //If ball is in the right hand side on the racket
+            diff = ball.x - pad.x;
+            ball.body.velocity.x = (10 * diff);
+        }
+
+        if (ball.y < pad.y)
+        {
+            //If ball is in the left hand side on the racket
+            diff = pad.y - ball.y;
+            ball.body.velocity.y = (-10 * diff);
+        }
+        else if (ball.y > pad.y)
+        {
+            //If ball is in the right hand side on the racket
+            diff = ball.y - pad.y;
+            ball.body.velocity.y = (10 * diff);
+        }
+        else
+        {
+            //The ball hit the center of the racket, let's add a little bit of a tragic accident(random) of his movement
+            ball.body.velocity.y = 2 + Math.random() * 8;
+        }
+
+},
+
+    hitSparks: function ( posX, posY) {
+        this.sparx.x = posX;
+        this.sparx.y = posY;
+        this.sparx.start(true, 2000, null, 5);
         this.ballSound();
     },
 
@@ -181,7 +260,6 @@ BasicGame.Game.prototype = {
 		this.state.start('MainMenu');
 
 	},
-
 
     ballSound: function() {
         switch( this.game.rnd.between(1,4) )

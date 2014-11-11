@@ -13,6 +13,7 @@
     <script src="scripts/ball.js"></script>
     <script src="scripts/Boot.js"></script>
 	<script src="scripts/Preloader.js"></script>
+	<script src="scripts/Congratulations.js"></script>
 	<script src="scripts/MainMenu.js"></script>
 	<script src="scripts/Game.js"></script>
 </head>
@@ -34,6 +35,7 @@ window.onload = function()
 	game.state.add('Preloader', BasicGame.Preloader);
 	game.state.add('MainMenu', BasicGame.MainMenu);
 	game.state.add('Game', BasicGame.Game);
+	game.state.add('Congratulations', BasicGame.Congratulations);
 
 	//	Now start the Boot state.
 	game.state.start('Boot');

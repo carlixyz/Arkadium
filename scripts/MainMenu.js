@@ -27,9 +27,11 @@ BasicGame.MainMenu.prototype = {
 
         this.leftInputButton = this.add.button( this.game.world.centerX * 0.25, this.game.world.centerY *1.5, 'inputButtons', this.swapInputLeft, this, 6, 5, 4, 2);
         this.leftInputButton.anchor.setTo(0.5,0.5);
+        BasicGame.leftInputCode = 1;
 
         this.rightInputButton = this.add.button( this.game.world.centerX * 1.75, this.game.world.centerY *1.5, 'inputButtons', this.swapInputRight, this, 2, 1, 0, 2);
         this.rightInputButton.anchor.setTo(0.5,0.5);
+        BasicGame.rightInputCode = 0;
 
 
         var emitter = this.game.add.emitter(this.game.world.centerX, this.game.world.centerY *.85, 75);
