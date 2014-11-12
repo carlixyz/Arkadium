@@ -8,6 +8,7 @@ var CPUInput = (function () {
         this.BallRef = null;
         this.PadCPU = null;
         this.Speed = 190;
+        this.Randomizer = 1;
 
         return this;
     }
@@ -26,6 +27,8 @@ var CPUInput = (function () {
 //        console.log("This is " + this.PadCPU.sprite.y );
 //        console.log("Ball is " + this.BallRef.sprite.Y );
 
+        this.Randomizer = 0.2 + Math.random() * 1.6;
+
         if ( !this.BallRef.active )
             for (var i = 0, total = game.state.getCurrentState().balls.length ; i < total; i++ )
                 if (game.state.getCurrentState().balls[i].active )
@@ -35,11 +38,11 @@ var CPUInput = (function () {
         //Control the computer's pad
         if((this.PadCPU.sprite.y - this.BallRef.sprite.y) < -15)
         {
-            this.PadCPU.sprite.body.velocity.y =this.Speed ;
+            this.PadCPU.sprite.body.velocity.y =this.Speed *  this.Randomizer;
         }
         else if(this.PadCPU.sprite.y - this.BallRef.sprite.y > 15)
         {
-            this.PadCPU.sprite.body.velocity.y = -this.Speed ;
+            this.PadCPU.sprite.body.velocity.y = -this.Speed *  this.Randomizer;
         }
         else
         {

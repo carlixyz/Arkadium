@@ -75,8 +75,6 @@ BasicGame.Preloader.prototype = {
 		{
             this.preloadBar.cropRect = new Phaser.Rectangle(0, 0, this.preloadBar.width , this.game.cache.getImage('Objs').height );
 
-            BasicGame.music = this.add.audio('titleMusic');
-            BasicGame.music.play();
 
             BasicGame.crush = this.add.audio('Crush');
 

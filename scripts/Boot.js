@@ -7,6 +7,7 @@ var BasicGame =
     rightScore: 0,
     rightInputCode: 0,      // 0, 1, 2, 3
 
+    topScore: 3,
 
     /* If the music in your game needs to play through-out a few State swaps, then you could reference it here */
     music: null,

@@ -17,10 +17,10 @@ BasicGame.MainMenu.prototype = {
 		//	Here all we're doing is playing some music and adding a picture and button
 		//	Naturally I expect you to do something significantly better :)
 
-        this.background = this.add.sprite(0, 0, 'Back2');
+        this.background = this.add.image(0, 0, 'Back2');
 
-//        this.playButton = this.add.button(this.game.world.centerX - this.game.cache.getImage('playButton').width/2,
-//            this.game.world.centerY + this.game.cache.getImage('playButton').height, 'playButton', this.startGame, this, 2, 1, 0);
+        BasicGame.music = this.add.audio('titleMusic');
+        BasicGame.music.play();
 
         this.playButton = this.add.button( this.game.world.centerX, this.game.world.centerY *1.5, 'inputButtons', this.startGame, this, 11, 7, 3, 2);
         this.playButton.anchor.setTo(0.5,0.5);
@@ -43,7 +43,7 @@ BasicGame.MainMenu.prototype = {
         emitter.setScale(1.5, 0.4, 1.5, 0.4, 5000, Phaser.Easing.Elastic.InOut);
         emitter.start(false, 2000, 10);
 
-        this.Title = this.add.sprite(this.game.world.centerX, this.game.world.centerY *.85, 'titlepage');
+        this.Title = this.add.image(this.game.world.centerX, this.game.world.centerY *.85, 'titlepage');
         this.Title.anchor.setTo(0.5,0.5);
         this.Title.scale.setTo(1.5,1.5);
 	},

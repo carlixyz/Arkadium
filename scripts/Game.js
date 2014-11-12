@@ -44,7 +44,7 @@ BasicGame.Game.prototype = {
 	create: function () {
 
 		//	Honestly, just about anything could go here. It's YOUR game after all. Eat your heart out!
-        this.background = this.add.sprite(0, 0, 'Back1');
+        this.background = this.add.image(0, 0, 'Back1');
 
         this.C1 = this.add.audio('Cling1');
         this.C2 = this.add.audio('Cling2');
@@ -76,8 +76,6 @@ BasicGame.Game.prototype = {
         this.sparx.setScale(1, 0.1, 1, 0.1, 3000, Phaser.Easing.Quintic.In);
         this.sparx.gravity = 0;
 
-
-
         this.balls = [3];
         for (var j = 0; j < 3; j++)
         {
@@ -92,11 +90,6 @@ BasicGame.Game.prototype = {
         this.ballsAmount = 3;
 
 
-
-//        this.ball = new Ball(this.game);
-//        this.ball.create(this.game);
-//        this.hitSparks(this.ball.sprite.x, this.ball.sprite.y);
-////        this.ball.hitRelease();
 
         this.padLeft = new LeftPad(this.game);
         switch (BasicGame.leftInputCode)
@@ -169,6 +162,12 @@ BasicGame.Game.prototype = {
                         ballRef.sprite.x =  70;
                         ballRef.sprite.y = this.padLeft.sprite.y;
                     }
+                    if (ballRef.launchSide == 0)
+                    {
+                        ballRef.sprite.x = this.world.centerX;
+                        ballRef.sprite.y = this.world.centerY;
+
+                    }
                 }
             }
         }
@@ -180,7 +179,8 @@ BasicGame.Game.prototype = {
         if ( this.input.keyboard.isDown(Phaser.Keyboard.ESC) )
             this.state.start('MainMenu');
 
-        if ( BasicGame.leftScore > 10 || BasicGame.rightScore > 10 )
+//        if ( BasicGame.leftScore > 9 || BasicGame.rightScore > 9 )
+        if ( BasicGame.leftScore > BasicGame.topScore  || BasicGame.rightScore > BasicGame.topScore  )
             this.state.start('Congratulations');
     },
 
