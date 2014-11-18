@@ -24,7 +24,7 @@ BasicGame.Game = function (game) {
     //	But do consider them as being 'reserved words', i.e. don't create a property for your own game called "world" or you'll over-write the world reference.
 
 //    this.ballGroup = null;
-//    this.ball = null;
+    this.items = null;
     this.blocks = null;
     this.balls = null;
     this.ballsAmount = 3;
@@ -51,6 +51,10 @@ BasicGame.Game.prototype = {
         this.C3 = this.add.audio('Cling3');
         this.C4 = this.add.audio('Cling4');
 
+        this.items =  this.game.add.group();
+        this.items.enableBody = true;
+        this.items.physicsBodyType = Phaser.Physics.ARCADE;
+
         this.blocks =  this.game.add.group();
         this.blocks.enableBody = true;
         this.blocks.physicsBodyType = Phaser.Physics.ARCADE;
@@ -68,8 +72,8 @@ BasicGame.Game.prototype = {
             }
         }
 
-        BasicGame.leftScore = 0;
-        BasicGame.rightScore = 0;
+        BasicGame.leftHealth = 3;
+        BasicGame.rightHealth = 3;
 
         this.sparx = this.game.add.emitter(this.game.world.centerX, this.game.world.centerY , 100);
         this.sparx.makeParticles('sparks', [0, 1, 2, 3]);
@@ -88,7 +92,6 @@ BasicGame.Game.prototype = {
         this.balls[1].setActive(true);
         this.balls[2].setActive(true);
         this.ballsAmount = 3;
-
 
 
         this.padLeft = new LeftPad(this.game);
@@ -138,6 +141,9 @@ BasicGame.Game.prototype = {
         this.padLeft.update(this.game);
         this.padRight.update(this.game);
 
+        this.game.physics.arcade.overlap(this.items, this.padRight.sprite, this.itemTake, null, this);
+        this.game.physics.arcade.overlap(this.items, this.padLeft.sprite, this.itemTake, null, this);
+
         for ( var j = 0; j < 3 ; j++)
         {
             ballRef = this.balls[j];
@@ -147,8 +153,8 @@ BasicGame.Game.prototype = {
                 ballRef.update(this.game);
 
                 this.game.physics.arcade.collide(ballRef.sprite, this.blocks, this.collisionHandler, null, this);
-                this.game.physics.arcade.collide(ballRef.sprite, this.padLeft.sprite, this.hitBouncePad, null, this);
-                this.game.physics.arcade.collide(ballRef.sprite, this.padRight.sprite, this.hitBouncePad , null, this);
+                this.game.physics.arcade.overlap(ballRef.sprite, this.padLeft.sprite, this.hitBouncePad, null, this);
+                this.game.physics.arcade.overlap(ballRef.sprite, this.padRight.sprite, this.hitBouncePad , null, this);
 
                 if (ballRef.released !== true )
                 {
@@ -166,38 +172,37 @@ BasicGame.Game.prototype = {
                     {
                         ballRef.sprite.x = this.world.centerX;
                         ballRef.sprite.y = this.world.centerY;
-
                     }
                 }
             }
         }
 
 
-//        this.info.text =  " " + BasicGame.leftScore +  " - " + BasicGame.rightScore +  " " + this.ballsAmount;
-        this.info.text =  " " + BasicGame.leftScore +  " - " + BasicGame.rightScore ;
+//        this.info.text =  " " + BasicGame.leftHealth +  " - " + BasicGame.rightHealth +  " " + this.ballsAmount;
+        this.info.text =  " " + BasicGame.leftHealth +  " - " + BasicGame.rightHealth ;
 
         if ( this.input.keyboard.isDown(Phaser.Keyboard.ESC) )
+        {
+            BasicGame.music.stop();
             this.state.start('MainMenu');
+        }
 
-//        if ( BasicGame.leftScore > 9 || BasicGame.rightScore > 9 )
-        if ( BasicGame.leftScore > BasicGame.topScore  || BasicGame.rightScore > BasicGame.topScore  )
+        if ( BasicGame.leftHealth < 0 || BasicGame.rightHealth < 0 )
             this.state.start('Congratulations');
     },
 
     collisionHandler: function ( ball, block) {
 //      Now I understand but Still hating JS;
 //        this.ball.hitBounce( ball, block);
+
+        this.itemCreate(block.x, block.y);
         block.kill();
         this.hitSparks(ball.x, ball.y);
     },
 
     hitBouncePad : function ( ball, pad) {
         var diff = 0;
-//        console.log("Bounced");
-//        this.hitSparks.apply(this);
-//        this.hitSparks();
-//        ball.body.velocity.x *= -1;
-
+//
         this.hitSparks(ball.x, ball.y);
 
         if (ball.x < pad.x)
@@ -233,6 +238,7 @@ BasicGame.Game.prototype = {
 
 },
 
+
     hitSparks: function ( posX, posY) {
         this.sparx.x = posX;
         this.sparx.y = posY;
@@ -260,6 +266,78 @@ BasicGame.Game.prototype = {
 		this.state.start('MainMenu');
 
 	},
+
+    itemCreate: function(posX, posY)
+    {
+        var itemType =   this.game.rnd.integerInRange(0, 8);
+        if ( itemType > 2 )
+            return;
+
+        var c = this.items.create( posX, posY, 'items', itemType);
+        c.name = itemType;
+        c.anchor.setTo(0.5, 0.5);
+        c.scale.setTo(2, 2);
+        c.body.velocity.x = this.game.rnd.integerInRange(50, 200) * this.math.randomSign();
+        c.body.velocity.y = this.game.rnd.integerInRange(50, 200) * this.math.randomSign();
+        c.body.collideWorldBounds = true;
+        c.body.allowGravity = false;
+        c.body.bounce = new Phaser.Point(1, 1);
+        c.body.linearDamping = 1;
+    },
+
+    itemTake: function (pad, item) {
+        switch (item.name)
+        {
+            case 0:
+                this.itemMultiBall();
+                break;
+            case 1:
+                this.itemControl(pad);
+                break;
+            case 2:
+                this.itemHealth(pad);
+                break;
+        }
+        this.items.remove(item, true, false);
+//        item.kill();
+    },
+
+    itemMultiBall: function () {
+
+        for( var i = 0, total = this.balls.length; i < total; i++ )
+        {
+            var ballRef =  this.balls[i];
+            if (!ballRef.active )
+            {
+                ballRef.sprite.body.velocity.x = 0;
+                ballRef.sprite.body.velocity.y = 0;
+                ballRef.launchSide = 0;
+                ballRef.sprite.x = this.world.centerX;
+                ballRef.sprite.y = this.world.centerY;
+                ballRef.setActive(true);
+                ballRef.released = false;
+                ballRef.hitRelease();
+                this.ballsAmount++;
+            }
+        }
+    },
+
+    itemHealth: function (pad)
+    {
+        if (this.padRight.sprite == pad && BasicGame.rightHealth < 5)
+            BasicGame.rightHealth++;
+        else if(this.padLeft.sprite == pad && BasicGame.leftHealth < 5)
+            BasicGame.leftHealth++;
+    },
+
+    itemControl: function (pad)
+    {
+        if (this.padRight.sprite == pad )
+            this.padLeft.setFuzzyControl(this.game);
+        else if(this.padLeft.sprite == pad )
+            this.padRight.setFuzzyControl(this.game);
+
+    },
 
     ballSound: function() {
         switch( this.game.rnd.between(1,4) )

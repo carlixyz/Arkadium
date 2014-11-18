@@ -36,6 +36,13 @@ var RightPad = (function () {
     };
 
 
+    RightPad.prototype.setFuzzyControl = function (game)
+    {
+        this.InputBehaviour.tightControl = false;
+        game.time.events.add(Phaser.Timer.SECOND * game.rnd.integerInRange(4, 20), function(){this.InputBehaviour.tightControl = true;}, this);
+
+    };
+
     RightPad.prototype.update = function (game) {
 
         this.InputBehaviour.updateInput(game);

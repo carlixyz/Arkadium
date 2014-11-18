@@ -85,19 +85,18 @@ var Ball = (function () {
             || ( this.launchSide == -1 && BasicGame.leftInputCode == 1 ) || ( this.launchSide == 1 && BasicGame.rightInputCode == 1 ) )
             this.hitRelease();
 
-
         if (this.sprite.x < 25)                     // If Ball escapes from left
         {
             this.launchSide = -1;
             this.setBall(game);                     // Point for Right player
-            BasicGame.rightScore += 1;
+            BasicGame.leftHealth -= 1;
             BasicGame.crush.play();
         }
         else if (this.sprite.x > game.width - 25)   // if Ball escapes from right
         {
             this.launchSide = +1;
-            this.setBall(game);                     // Point for Left Player
-            BasicGame.leftScore += 1;
+            this.setBall(game);
+            BasicGame.rightHealth -= 1;             // Point for Left Player
             BasicGame.crush.play();
         }
 

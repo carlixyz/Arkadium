@@ -42,6 +42,12 @@ var LeftPad = (function () {
         this.sprite.body.immovable = true;
     };
 
+    LeftPad.prototype.setFuzzyControl = function (game)
+    {
+        this.InputBehaviour.tightControl = false;
+        game.time.events.add(Phaser.Timer.SECOND * game.rnd.integerInRange(4, 20), function(){this.InputBehaviour.tightControl = true;}, this);
+    };
+
 
     LeftPad.prototype.update = function (game) {
 

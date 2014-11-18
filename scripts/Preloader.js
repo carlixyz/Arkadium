@@ -4,7 +4,7 @@ BasicGame.Preloader = function (game) {
 	this.background = null;
 	this.preloadBar = null;
     this.font = null;
-	this.ready = false;
+	this.ready = 4;
 
 };
 
@@ -40,6 +40,7 @@ BasicGame.Preloader.prototype = {
         this.load.image('Back1', 'images/fondo1.png' );
         this.load.image('Back3', 'images/fondo3.png' );
         this.load.image('kof97', 'images/kof97.png');
+        this.load.spritesheet('items', 'images/Items.png', 32, 32 );
         this.load.spritesheet('sparks', 'images/sparks.png', 64, 64);
         this.load.spritesheet('titleSparks', 'images/sparks2.png', 64, 64);
         this.load.spritesheet('inputButtons', 'images/ArkInputs.png', 128, 128);
@@ -71,25 +72,33 @@ BasicGame.Preloader.prototype = {
 
         //	If you don't have any music in your game then put the game.state.start line into the create function and delete
         //	the update function completely.
-        if (this.cache.isSoundDecoded('titleMusic') && this.ready == false)
-		{
+
+
+        if (this.cache.isSoundDecoded('Cling1') && this.ready == 4)
+        {
+            this.ready--;
+            this.preloadBar.cropRect = new Phaser.Rectangle(0, 0, this.preloadBar.width * 0.625 , this.game.cache.getImage('Objs').height );
+        }
+        if (this.cache.isSoundDecoded('Cling2') && this.ready == 3)
+        {
+            this.ready--;
+            this.preloadBar.cropRect = new Phaser.Rectangle(0, 0, this.preloadBar.width * 0.75 , this.game.cache.getImage('Objs').height );
+        }
+
+        if (this.cache.isSoundDecoded('Cling3') && this.ready == 2)
+        {
+           this.ready--;
+           this.preloadBar.cropRect = new Phaser.Rectangle(0, 0, this.preloadBar.width * 0.875, this.game.cache.getImage('Objs').height );
+        }
+
+        if (this.cache.isSoundDecoded('titleMusic') && this.ready == 1)
+        {
             this.preloadBar.cropRect = new Phaser.Rectangle(0, 0, this.preloadBar.width , this.game.cache.getImage('Objs').height );
 
-
             BasicGame.crush = this.add.audio('Crush');
-
-            this.ready = true;
-			this.state.start('MainMenu');
-		}
-
-        if (this.cache.isSoundDecoded('Cling1') && this.ready == false)
-            this.preloadBar.cropRect = new Phaser.Rectangle(0, 0, this.preloadBar.width * 0.625 , this.game.cache.getImage('Objs').height );
-
-        if (this.cache.isSoundDecoded('Cling2') && this.ready == false)
-            this.preloadBar.cropRect = new Phaser.Rectangle(0, 0, this.preloadBar.width * 0.75 , this.game.cache.getImage('Objs').height );
-
-        if (this.cache.isSoundDecoded('Cling3') && this.ready == false)
-            this.preloadBar.cropRect = new Phaser.Rectangle(0, 0, this.preloadBar.width * 0.875, this.game.cache.getImage('Objs').height );
+            this.ready = 0;
+            this.state.start('MainMenu');
+        }
 
         this.font.text = "loading game please wait - mouse x: " + this.game.input.x + " y: " + this.game.input.y;
         this.preloadBar.updateCrop();

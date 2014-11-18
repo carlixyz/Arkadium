@@ -22,6 +22,9 @@ BasicGame.Congratulations.prototype = {
 		//this.music = this.add.audio('titleMusic');
 		//this.music.play();
 
+        BasicGame.music.stop();
+
+
         //Add logo
 		this.logo = this.add.image(this.game.world.centerX, this.game.world.centerY * 0.75,  'Objs', 3);
         this.logo.scale.set(0.75);
@@ -38,10 +41,10 @@ BasicGame.Congratulations.prototype = {
         // Tell Who's the winner
         ////////////////////////////////////////////////////////////////////////////
         this.WinnerText = this.game.add.retroFont('kof97', 8, 8, Phaser.RetroFont.TEXT_SET1);
-        if ( BasicGame.leftScore > BasicGame.topScore )
-            this.WinnerText.text = 'LEFT PLAYER'  ;
-        if ( BasicGame.rightScore > BasicGame.topScore )
+        if ( BasicGame.leftHealth < 0 )
             this.WinnerText.text = 'RIGHT PLAYER'  ;
+        if ( BasicGame.rightHealth < 0 )
+            this.WinnerText.text = 'LEFT PLAYER'  ;
 
         var j = this.game.add.image(this.game.world.centerX, this.game.world.centerY * 0.75, this.WinnerText);
         j.tint = 0xFF00FF;
@@ -53,8 +56,8 @@ BasicGame.Congratulations.prototype = {
         this.game.add.tween(this.logo.scale).to( { y: 0.05, x: 0.1 }, 100, Phaser.Easing.Elastic.Out, true, 0, 1, false).to({y: 1.5, x: 1.5});
         this.game.add.tween(j.scale).to( { y: 0.05, x: 0.1 }, 100, Phaser.Easing.Elastic.Out, true, 0, 1, false).to({y: 4, x: 4});
 
-        BasicGame.leftScore = 0;
-        BasicGame.rightScore = 0;
+        BasicGame.leftHealth = 3;
+        BasicGame.rightHealth = 3;
 
         //add a click handler
         this.game.input.onDown.add(this.click, this);

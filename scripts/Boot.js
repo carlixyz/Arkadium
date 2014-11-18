@@ -1,10 +1,10 @@
 var BasicGame =
 {
     /* Here we've just got some global level vars that persist regardless of State swaps */
-    leftScore: 0,
+    leftHealth: 3,
     leftInputCode: 1,       // 0, 1, 2, 3
 
-    rightScore: 0,
+    rightHealth: 3,
     rightInputCode: 0,      // 0, 1, 2, 3
 
     topScore: 3,
