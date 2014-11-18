@@ -23,13 +23,15 @@ BasicGame.Game = function (game) {
     //	You can use any of these from any function within this State.
     //	But do consider them as being 'reserved words', i.e. don't create a property for your own game called "world" or you'll over-write the world reference.
 
-//    this.ballGroup = null;
+    this.gameStart = true;
     this.items = null;
     this.blocks = null;
     this.balls = null;
     this.ballsAmount = 3;
     this.padRight = null;
     this.padLeft = null;
+    this.healthRight = null;
+    this.healthLeft = null;
     this.info = null;
     this.C1 = null;
     this.C2 = null;
@@ -50,6 +52,7 @@ BasicGame.Game.prototype = {
         this.C2 = this.add.audio('Cling2');
         this.C3 = this.add.audio('Cling3');
         this.C4 = this.add.audio('Cling4');
+
 
         this.items =  this.game.add.group();
         this.items.enableBody = true;
@@ -93,7 +96,6 @@ BasicGame.Game.prototype = {
         this.balls[2].setActive(true);
         this.ballsAmount = 3;
 
-
         this.padLeft = new LeftPad(this.game);
         switch (BasicGame.leftInputCode)
         {
@@ -128,11 +130,27 @@ BasicGame.Game.prototype = {
                 break;
         }
 
+        this.gameStart = true;
         this.info = this.game.add.retroFont('kof97', 8, 8, Phaser.RetroFont.TEXT_SET1);
-        var i = this.game.add.image(this.game.world.centerX, this.game.world.centerY *.1, this.info);
+        var i = this.game.add.image(this.game.world.centerX, this.game.world.centerY *1.9, this.info);
         i.tint = 0xFF00FF;
         i.scale.setTo(2, 2);
         i.anchor.set(0.5, 1);
+        this.info.text =  "ARE YOU READY? PUSH TRIGGER TO LAUNCH BALL" ;
+
+        this.healthRight = [5];
+        this.healthLeft = [5];
+        for (var k = 1; k <= 5; k++)
+        {
+            this.healthRight[k] = this.add.image(this.game.world.centerX + (k * 32), 10, 'items', 3);
+            this.healthRight[k].anchor.setTo(0.5, 0);
+            this.healthRight[k].tint = 0x88FF88;
+            this.healthLeft[k] = this.add.image(this.game.world.centerX - (k * 32), 10, 'items', 3);
+            this.healthLeft[k].anchor.setTo(0.5, 0);
+            this.healthLeft[k].tint = 0xFF8888;
+
+        }
+
 
     },
 
@@ -140,9 +158,6 @@ BasicGame.Game.prototype = {
 
         this.padLeft.update(this.game);
         this.padRight.update(this.game);
-
-        this.game.physics.arcade.overlap(this.items, this.padRight.sprite, this.itemTake, null, this);
-        this.game.physics.arcade.overlap(this.items, this.padLeft.sprite, this.itemTake, null, this);
 
         for ( var j = 0; j < 3 ; j++)
         {
@@ -173,13 +188,14 @@ BasicGame.Game.prototype = {
                         ballRef.sprite.x = this.world.centerX;
                         ballRef.sprite.y = this.world.centerY;
                     }
-                }
+                }else
+                this.gameStart = false;
             }
         }
 
+        this.game.physics.arcade.overlap(this.items, this.padRight.sprite, this.itemTake, null, this);
+        this.game.physics.arcade.overlap(this.items, this.padLeft.sprite, this.itemTake, null, this);
 
-//        this.info.text =  " " + BasicGame.leftHealth +  " - " + BasicGame.rightHealth +  " " + this.ballsAmount;
-        this.info.text =  " " + BasicGame.leftHealth +  " - " + BasicGame.rightHealth ;
 
         if ( this.input.keyboard.isDown(Phaser.Keyboard.ESC) )
         {
@@ -238,7 +254,6 @@ BasicGame.Game.prototype = {
 
 },
 
-
     hitSparks: function ( posX, posY) {
         this.sparx.x = posX;
         this.sparx.y = posY;
@@ -251,6 +266,19 @@ BasicGame.Game.prototype = {
 //        game.debug.spriteInfo(this.sprite, 32, 32);
         // call renderGroup on each of the alive members
 //        this.blocks.forEach(this.renderGroup, this);
+
+        if (this.info && !this.gameStart )
+        {
+            this.info.text =  "" ;
+            this.info.destroy(true);
+//            this.info = null;
+        }
+
+        for (var k = 1; k <= 5; k++)
+        {
+            ( k > BasicGame.rightHealth ? this.healthRight[k].kill() : this.healthRight[k].revive()) ;
+            ( k > BasicGame.leftHealth ? this.healthLeft[k].kill() : this.healthLeft[k].revive()) ;
+        }
     },
 
     renderGroup : function(member) {
@@ -322,16 +350,14 @@ BasicGame.Game.prototype = {
         }
     },
 
-    itemHealth: function (pad)
-    {
+    itemHealth: function (pad)    {
         if (this.padRight.sprite == pad && BasicGame.rightHealth < 5)
             BasicGame.rightHealth++;
         else if(this.padLeft.sprite == pad && BasicGame.leftHealth < 5)
             BasicGame.leftHealth++;
     },
 
-    itemControl: function (pad)
-    {
+    itemControl: function (pad)    {
         if (this.padRight.sprite == pad )
             this.padLeft.setFuzzyControl(this.game);
         else if(this.padLeft.sprite == pad )

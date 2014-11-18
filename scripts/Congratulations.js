@@ -6,6 +6,7 @@ BasicGame.Congratulations = function (game) {
 	this.playButton = null;
     this.WinnerText = null;
     this.gameMessageText = null;
+    this.scoreText = null;
 
 };
 
@@ -42,9 +43,15 @@ BasicGame.Congratulations.prototype = {
         ////////////////////////////////////////////////////////////////////////////
         this.WinnerText = this.game.add.retroFont('kof97', 8, 8, Phaser.RetroFont.TEXT_SET1);
         if ( BasicGame.leftHealth < 0 )
+        {
             this.WinnerText.text = 'RIGHT PLAYER'  ;
+            BasicGame.rightScore++;
+        }
         if ( BasicGame.rightHealth < 0 )
+        {
             this.WinnerText.text = 'LEFT PLAYER'  ;
+            BasicGame.leftScore++;
+        }
 
         var j = this.game.add.image(this.game.world.centerX, this.game.world.centerY * 0.75, this.WinnerText);
         j.tint = 0xFF00FF;
@@ -55,6 +62,15 @@ BasicGame.Congratulations.prototype = {
         this.game.add.tween(this.logo).to( { tint: 0xFFFF00 }, 300, Phaser.Easing.Linear.None, true, 0, 10, false).to({tint: 0xFFFFFF});
         this.game.add.tween(this.logo.scale).to( { y: 0.05, x: 0.1 }, 100, Phaser.Easing.Elastic.Out, true, 0, 1, false).to({y: 1.5, x: 1.5});
         this.game.add.tween(j.scale).to( { y: 0.05, x: 0.1 }, 100, Phaser.Easing.Elastic.Out, true, 0, 1, false).to({y: 4, x: 4});
+
+
+        this.scoreText = this.game.add.retroFont('kof97', 8, 8, Phaser.RetroFont.TEXT_SET1);
+        this.scoreText.text =  BasicGame.leftScore + " - " + BasicGame.rightScore ;
+        var k = this.game.add.image(this.game.world.centerX, this.game.world.centerY, this.scoreText);
+        k.tint = 0xFF00FF;
+        k.scale.setTo(2, 2);
+        k.anchor.set(0.5, 1);
+
 
         BasicGame.leftHealth = 3;
         BasicGame.rightHealth = 3;

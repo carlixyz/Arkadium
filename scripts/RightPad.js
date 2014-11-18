@@ -38,8 +38,12 @@ var RightPad = (function () {
 
     RightPad.prototype.setFuzzyControl = function (game)
     {
+        var timeLapse = Phaser.Timer.SECOND * game.rnd.integerInRange(4, 20);
+
         this.InputBehaviour.tightControl = false;
-        game.time.events.add(Phaser.Timer.SECOND * game.rnd.integerInRange(4, 20), function(){this.InputBehaviour.tightControl = true;}, this);
+        game.time.events.add(timeLapse, function(){this.InputBehaviour.tightControl = true;}, this);
+//        game.add.tween(this.sprite).to( { tint: 0xFFDDFF }, timeLapse, Phaser.Easing.Linear.None, true, 0, 0, false).to({tint: 0xFFFFFF});
+        game.add.tween(this.sprite).to( { tint: 0x00FFFF }, timeLapse, Phaser.Easing.Linear.None, true, 0, 0, false).to({tint: 0xFFFFFF});
 
     };
 

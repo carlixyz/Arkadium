@@ -2,13 +2,14 @@ var BasicGame =
 {
     /* Here we've just got some global level vars that persist regardless of State swaps */
     leftHealth: 3,
+    leftScore: 0,
     leftInputCode: 1,       // 0, 1, 2, 3
 
     rightHealth: 3,
+    rightScore: 0,
     rightInputCode: 0,      // 0, 1, 2, 3
 
-    topScore: 3,
-
+//    topScore: 3,
     /* If the music in your game needs to play through-out a few State swaps, then you could reference it here */
     music: null,
     crush: null,
