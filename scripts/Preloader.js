@@ -48,9 +48,17 @@ BasicGame.Preloader.prototype = {
             this.ItemSprites[k].scale.setTo(1.5, 1.5);
         }
 
+        this.font = this.game.add.retroFont('kof97', 8, 8, Phaser.RetroFont.TEXT_SET1);
+        this.font.text = "loading game please wait  ";
+        var i = this.game.add.image(this.game.world.centerX, this.game.world.centerY * 1.9, this.font);
+        i.tint = 0xFF00FF;
+        i.scale.setTo(2, 2);
+        i.anchor.set(0.5, 1);
 
         this.load.image('titlepage', 'images/title.png');
         this.load.spritesheet('playButton', 'images/button_texture_atlas.png', 193, 71);
+        this.load.spritesheet('Objs', 'images/Objetos.png',256, 256 );
+
         this.load.audio('Crush', ['audio/can-crush-1.mp3']);
         this.load.audio('Cling1', ['audio/glass-clink-1.mp3']);
         this.load.audio('Cling2', ['audio/glass-clink-2.mp3']);
@@ -73,17 +81,6 @@ BasicGame.Preloader.prototype = {
 		//	Once the load has finished we disable the crop because we're going to sit in the update loop for a short while as the music decodes
 		this.preloadBar.cropEnabled = false;
         this.preloadBar.cropRect = new Phaser.Rectangle(0, 0, this.preloadBar.width * 0.5, this.game.cache.getImage('Objs').height);
-
-        this.font = this.game.add.retroFont('kof97', 8, 8, Phaser.RetroFont.TEXT_SET1);
-        var i = this.game.add.image(this.game.world.centerX, this.game.world.centerY * 1.8, this.font);
-        i.tint = 0xFF00FF;
-        i.scale.setTo(2, 2);
-        i.anchor.set(0.5, 1);
-        this.font.text = "loading game please wait  ";
-
-
-
-
     },
 
 	update: function () {

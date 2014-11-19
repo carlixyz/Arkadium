@@ -9,6 +9,7 @@ BasicGame.MainMenu = function (game) {
 //    this.rightInputCode = 0;         // 0, 1, 2, 3
 
 	this.Title = null;
+	this.infoText = null;
 };
 
 BasicGame.MainMenu.prototype = {
@@ -46,6 +47,17 @@ BasicGame.MainMenu.prototype = {
         this.Title = this.add.image(this.game.world.centerX, this.game.world.centerY *.85, 'titlepage');
         this.Title.anchor.setTo(0.5,0.5);
         this.Title.scale.setTo(1.5,1.5);
+
+        this.infoText = this.game.add.retroFont('kof97', 8, 8, Phaser.RetroFont.TEXT_SET1);
+
+        if (BasicGame.rightScore || BasicGame.leftScore)
+            this.infoText.text =  BasicGame.leftScore + " - " + BasicGame.rightScore ;
+        else
+            this.infoText.text =  "CHOOSE CPU OR PLAYER INPUT & PUSH PLAY" ;
+        var i = this.game.add.image(this.game.world.centerX, this.game.world.centerY *1.9, this.infoText);
+        i.tint = 0xFF00FF;
+        i.scale.setTo(2, 2);
+        i.anchor.set(0.5, 1);
 	},
 
 	update: function () {

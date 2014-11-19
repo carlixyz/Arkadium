@@ -151,9 +151,7 @@ BasicGame.Game.prototype = {
             this.healthLeft[k] = this.add.image(this.game.world.centerX - (k * 32), 10, 'items', 7);
             this.healthLeft[k].anchor.setTo(0.5, 0);
             this.healthLeft[k].tint = 0xFF8888;
-
         }
-
 
     },
 
@@ -175,10 +173,11 @@ BasicGame.Game.prototype = {
                 this.game.physics.arcade.overlap(ballRef.sprite, this.padLeft.sprite, this.hitBouncePad, null, this);
                 this.game.physics.arcade.overlap(ballRef.sprite, this.padRight.sprite, this.hitBouncePad , null, this);
 
-//                if (this.blocksTotal < 5 && BasicGame.leftInputCode != 1 && BasicGame.rightInputCode != 1)
                 if (this.blocksTotal < 1 )
+                {
+                    ballRef.speed = 500;
                     ballRef.sprite.bounce = 20;
-
+                }
                     if (ballRef.released !== true )
                 {
                     if (ballRef.launchSide == 1)
