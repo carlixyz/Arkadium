@@ -25,6 +25,7 @@ var Ball = (function () {
         this.sprite.anchor.setTo(0.5, 0.5);
         game.physics.enable(this.sprite, Phaser.Physics.ARCADE);
         this.sprite.body.setSize(60, 60);
+        this.sprite.bounce = 10;
 
         this.sprite.body.collideWorldBounds = true;
         this.sprite.body.allowGravity = false;
@@ -67,8 +68,6 @@ var Ball = (function () {
 
         if (this.released)
         {
-//            this.sprite.x = game.world.centerX;
-//            this.sprite.y = game.world.centerY;
             this.sprite.body.velocity.x = 0;
             this.sprite.body.velocity.y = 0;
             this.released = false;

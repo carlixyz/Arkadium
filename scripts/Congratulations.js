@@ -1,7 +1,7 @@
 
 BasicGame.Congratulations = function (game) {
 
-	this.music = null;
+//	this.music = null;
     this.logo = null;
 	this.playButton = null;
     this.WinnerText = null;
@@ -20,8 +20,8 @@ BasicGame.Congratulations.prototype = {
 		//	Naturally I expect you to do something significantly better :)
         this.background = this.add.image(0, 0, 'Back3');
 
-		//this.music = this.add.audio('titleMusic');
-		//this.music.play();
+		this.music = this.add.audio('Congratulations');
+		this.music.play();
 
         BasicGame.music.stop();
 
@@ -33,7 +33,7 @@ BasicGame.Congratulations.prototype = {
 
         //add Brief text
         this.gameMessageText = this.game.add.retroFont('kof97', 8, 8, Phaser.RetroFont.TEXT_SET1);
-        this.gameMessageText.text =  " " + 'CONGLATURATIONS !!!' +  " - " + 'A great winner is You!'  ;
+        this.gameMessageText.text =  'CONGLATURATIONS !!!' +  " - " + 'A great winner is You!'  ;
         var i = this.game.add.image(this.game.world.centerX, this.game.world.centerY * 1.5, this.gameMessageText);
         i.tint = 0xFF00FF;
         i.scale.setTo(2, 2);
@@ -52,7 +52,6 @@ BasicGame.Congratulations.prototype = {
             this.WinnerText.text = 'LEFT PLAYER'  ;
             BasicGame.leftScore++;
         }
-
         var j = this.game.add.image(this.game.world.centerX, this.game.world.centerY * 0.75, this.WinnerText);
         j.tint = 0xFF00FF;
         j.anchor.set(0.5, 0.5);

@@ -21,6 +21,7 @@ var RightPad = (function () {
 
         this.sprite = game.add.sprite(game.world.centerX * 1.9, game.world.centerY , 'Objs', 1);
 
+        this.sprite.sticky = false;
         this.sprite.scale.setTo(0.5, 0.5);
         this.sprite.anchor.setTo(0.5, 0.5);
         game.physics.enable(this.sprite, Phaser.Physics.ARCADE);
@@ -45,6 +46,24 @@ var RightPad = (function () {
 //        game.add.tween(this.sprite).to( { tint: 0xFFDDFF }, timeLapse, Phaser.Easing.Linear.None, true, 0, 0, false).to({tint: 0xFFFFFF});
         game.add.tween(this.sprite).to( { tint: 0x00FFFF }, timeLapse, Phaser.Easing.Linear.None, true, 0, 0, false).to({tint: 0xFFFFFF});
 
+    };
+
+    RightPad.prototype.setSuperSize = function (game)
+    {
+        var timeLapse = Phaser.Timer.SECOND * game.rnd.integerInRange(5, 30);
+        game.add.tween(this.sprite.scale).to( { y: 1 }, timeLapse * 0.25, Phaser.Easing.Linear.None, true);
+
+        game.time.events.add(timeLapse , function(){
+            game.add.tween(this.sprite.scale).to( { y: 0.5 }, 200, Phaser.Easing.Linear.None, true)
+        }, this);
+    };
+
+    RightPad.prototype.setSticky = function (game)
+    {
+        var timeLapse = Phaser.Timer.SECOND * game.rnd.integerInRange(4, 20);
+
+        this.sprite.sticky = true;
+        game.time.events.add(timeLapse, function(){this.sprite.sticky = false; }, this);
     };
 
     RightPad.prototype.update = function (game) {

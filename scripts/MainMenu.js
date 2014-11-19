@@ -20,7 +20,7 @@ BasicGame.MainMenu.prototype = {
         this.background = this.add.image(0, 0, 'Back2');
 
         BasicGame.music = this.add.audio('titleMusic');
-//        BasicGame.music.play();
+        BasicGame.music.play();
 
         this.playButton = this.add.button( this.game.world.centerX, this.game.world.centerY *1.5, 'inputButtons', this.startGame, this, 11, 7, 3, 2);
         this.playButton.anchor.setTo(0.5,0.5);

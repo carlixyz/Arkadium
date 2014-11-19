@@ -5,6 +5,9 @@ BasicGame.Preloader = function (game) {
 	this.preloadBar = null;
     this.font = null;
 	this.ready = 4;
+    this.ItemText = null;
+    this.ItemSprites = null;
+
 
 };
 
@@ -26,21 +29,40 @@ BasicGame.Preloader.prototype = {
 
 		//	Here we load the rest of the assets our game needs.
 		//	As this is just a Project Template I've not provided these assets, swap them for your own.
-		this.load.image('titlepage', 'images/title.png');
+//        this.load.image('kof97', 'images/kof97.png');
+
+        //add Brief text
+        this.ItemText = this.game.add.retroFont('kof97', 8, 8, Phaser.RetroFont.TEXT_SET1);
+        this.ItemText.setText("  STICKY PAD\n  LONGER PHALUM\n  HEALTH\n  F##K UP RIVAL CONTROL\n  MULTIBALL ", true, 0, 8, Phaser.RetroFont.ALIGN_LEFT);
+        var j = this.game.add.image(this.game.world.centerX * 0.75, this.game.world.centerY * 0.75, this.ItemText);
+        j.tint = 0xFF00FF;
+        j.scale.setTo(2, 2);
+        j.anchor.set(0.5, 1);
+
+        this.ItemSprites = [3];
+
+        for (var k = 0; k < 5; k++)
+        {
+            this.ItemSprites[k] = this.game.add.image( this.game.world.centerX * 0.25, this.game.world.centerY * 0.725 - (32 * k), 'items', k);
+            this.ItemSprites[k].anchor.setTo(0.5, 0.5);
+            this.ItemSprites[k].scale.setTo(1.5, 1.5);
+        }
+
+
+        this.load.image('titlepage', 'images/title.png');
         this.load.spritesheet('playButton', 'images/button_texture_atlas.png', 193, 71);
         this.load.audio('Crush', ['audio/can-crush-1.mp3']);
         this.load.audio('Cling1', ['audio/glass-clink-1.mp3']);
         this.load.audio('Cling2', ['audio/glass-clink-2.mp3']);
         this.load.audio('Cling3', ['audio/glass-clink-3.mp3']);
         this.load.audio('Cling4', ['audio/glass-clink-4.mp3']);
+        this.load.audio('Congratulations', ['audio/Congratulations.ogg']);
         this.load.audio('titleMusic', ['audio/midnight-ride-01a.mp3']);
 
 		//	+ lots of other required assets here
 
         this.load.image('Back1', 'images/fondo1.png' );
         this.load.image('Back3', 'images/fondo3.png' );
-        this.load.image('kof97', 'images/kof97.png');
-        this.load.spritesheet('items', 'images/Items.png', 32, 32 );
         this.load.spritesheet('sparks', 'images/sparks.png', 64, 64);
         this.load.spritesheet('titleSparks', 'images/sparks2.png', 64, 64);
         this.load.spritesheet('inputButtons', 'images/ArkInputs.png', 128, 128);
@@ -57,7 +79,10 @@ BasicGame.Preloader.prototype = {
         i.tint = 0xFF00FF;
         i.scale.setTo(2, 2);
         i.anchor.set(0.5, 1);
-        this.font.text = "loading game please wait  "
+        this.font.text = "loading game please wait  ";
+
+
+
 
     },
 
@@ -85,7 +110,7 @@ BasicGame.Preloader.prototype = {
             this.preloadBar.cropRect = new Phaser.Rectangle(0, 0, this.preloadBar.width * 0.75 , this.game.cache.getImage('Objs').height );
         }
 
-        if (this.cache.isSoundDecoded('Cling3') && this.ready == 2)
+        if (this.cache.isSoundDecoded('Congratulations') && this.ready == 2)
         {
            this.ready--;
            this.preloadBar.cropRect = new Phaser.Rectangle(0, 0, this.preloadBar.width * 0.875, this.game.cache.getImage('Objs').height );

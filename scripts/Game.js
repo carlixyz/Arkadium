@@ -26,6 +26,7 @@ BasicGame.Game = function (game) {
     this.gameStart = true;
     this.items = null;
     this.blocks = null;
+    this.blocksTotal = 30;
     this.balls = null;
     this.ballsAmount = 3;
     this.padRight = null;
@@ -61,6 +62,8 @@ BasicGame.Game.prototype = {
         this.blocks =  this.game.add.group();
         this.blocks.enableBody = true;
         this.blocks.physicsBodyType = Phaser.Physics.ARCADE;
+        this.blocksTotal = 6 * 5;
+
         for (var row = 0; row < 6; row++)
         {
             for (var col = 0; col < 5; col++)
@@ -142,10 +145,10 @@ BasicGame.Game.prototype = {
         this.healthLeft = [5];
         for (var k = 1; k <= 5; k++)
         {
-            this.healthRight[k] = this.add.image(this.game.world.centerX + (k * 32), 10, 'items', 3);
+            this.healthRight[k] = this.add.image(this.game.world.centerX + (k * 32), 10, 'items', 7);
             this.healthRight[k].anchor.setTo(0.5, 0);
             this.healthRight[k].tint = 0x88FF88;
-            this.healthLeft[k] = this.add.image(this.game.world.centerX - (k * 32), 10, 'items', 3);
+            this.healthLeft[k] = this.add.image(this.game.world.centerX - (k * 32), 10, 'items', 7);
             this.healthLeft[k].anchor.setTo(0.5, 0);
             this.healthLeft[k].tint = 0xFF8888;
 
@@ -155,6 +158,7 @@ BasicGame.Game.prototype = {
     },
 
 	update: function () {
+
 
         this.padLeft.update(this.game);
         this.padRight.update(this.game);
@@ -171,7 +175,11 @@ BasicGame.Game.prototype = {
                 this.game.physics.arcade.overlap(ballRef.sprite, this.padLeft.sprite, this.hitBouncePad, null, this);
                 this.game.physics.arcade.overlap(ballRef.sprite, this.padRight.sprite, this.hitBouncePad , null, this);
 
-                if (ballRef.released !== true )
+//                if (this.blocksTotal < 5 && BasicGame.leftInputCode != 1 && BasicGame.rightInputCode != 1)
+                if (this.blocksTotal < 1 )
+                    ballRef.sprite.bounce = 20;
+
+                    if (ballRef.released !== true )
                 {
                     if (ballRef.launchSide == 1)
                     {
@@ -203,6 +211,11 @@ BasicGame.Game.prototype = {
             this.state.start('MainMenu');
         }
 
+        if ( this.input.keyboard.isDown(Phaser.Keyboard.T) )
+        {
+          this.padLeft.setSuperSize(this);
+        }
+
         if ( BasicGame.leftHealth < 0 || BasicGame.rightHealth < 0 )
             this.state.start('Congratulations');
     },
@@ -213,38 +226,58 @@ BasicGame.Game.prototype = {
 
         this.itemCreate(block.x, block.y);
         block.kill();
+        this.blocksTotal--;
         this.hitSparks(ball.x, ball.y);
     },
 
     hitBouncePad : function ( ball, pad) {
+
+        if ( pad.sticky )
+        {
+            for(var i= 0; i<3; i++)
+            {
+                if ( this.balls[i].sprite == ball)
+                {
+                    this.balls[i].launchSide = (pad.x <  this.world.centerX? -1 : +1);
+                    if (this.balls[i].released)
+                    {
+                        ball.body.velocity.x = 0;
+                        ball.body.velocity.y = 0;
+                        this.balls[i].released = false;
+                    }
+                    return;
+                }
+            }
+        }
+
+
         var diff = 0;
-//
         this.hitSparks(ball.x, ball.y);
 
         if (ball.x < pad.x)
         {
             //If ball is in the left hand side on the racket
             diff = pad.x - ball.x;
-            ball.body.velocity.x = (-10 * diff);
+            ball.body.velocity.x = (-ball.bounce * diff);
         }
         else if (ball.x > pad.x)
         {
             //If ball is in the right hand side on the racket
             diff = ball.x - pad.x;
-            ball.body.velocity.x = (10 * diff);
+            ball.body.velocity.x = (ball.bounce * diff);
         }
 
         if (ball.y < pad.y)
         {
             //If ball is in the left hand side on the racket
             diff = pad.y - ball.y;
-            ball.body.velocity.y = (-10 * diff);
+            ball.body.velocity.y = (-ball.bounce * diff);
         }
         else if (ball.y > pad.y)
         {
             //If ball is in the right hand side on the racket
             diff = ball.y - pad.y;
-            ball.body.velocity.y = (10 * diff);
+            ball.body.velocity.y = (ball.bounce * diff);
         }
         else
         {
@@ -269,8 +302,8 @@ BasicGame.Game.prototype = {
 
         if (this.info && !this.gameStart )
         {
-            this.info.text =  "" ;
-            this.info.destroy(true);
+            this.info.text =  " " ;
+//            this.info.destroy(true);
 //            this.info = null;
         }
 
@@ -297,8 +330,8 @@ BasicGame.Game.prototype = {
 
     itemCreate: function(posX, posY)
     {
-        var itemType =   this.game.rnd.integerInRange(0, 8);
-        if ( itemType > 2 )
+        var itemType =   this.game.rnd.integerInRange(0, 10);
+        if ( itemType > 4 )
             return;
 
         var c = this.items.create( posX, posY, 'items', itemType);
@@ -324,6 +357,12 @@ BasicGame.Game.prototype = {
                 break;
             case 2:
                 this.itemHealth(pad);
+                break;
+            case 3:
+                this.itemLonger(pad);
+                break;
+            case 4:
+                this.itemSticky(pad);
                 break;
         }
         this.items.remove(item, true, false);
@@ -362,6 +401,22 @@ BasicGame.Game.prototype = {
             this.padLeft.setFuzzyControl(this.game);
         else if(this.padLeft.sprite == pad )
             this.padRight.setFuzzyControl(this.game);
+
+    },
+
+    itemLonger: function (pad)    {
+        if (this.padRight.sprite == pad )
+            this.padRight.setSuperSize(this.game);
+        else if(this.padLeft.sprite == pad )
+            this.padLeft.setSuperSize(this.game);
+
+    },
+
+    itemSticky: function (pad)    {
+        if (this.padRight.sprite == pad )
+            this.padRight.setSticky(this.game)
+        else if(this.padLeft.sprite == pad )
+            this.padLeft.setSticky(this.game);
 
     },
 
