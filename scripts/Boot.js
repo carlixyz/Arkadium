@@ -31,12 +31,11 @@ BasicGame.Boot.prototype = {
 
         this.game.physics.startSystem(Phaser.Physics.ARCADE);
 
-
         //  Here we load the assets required for our preloader (in this case a background and a loading bar)
         this.load.image('Back2', 'images/fondo2.png');
         this.load.image('kof97', 'images/kof97.png');
         this.load.spritesheet('items', 'images/Items.png', 32, 32 );
-        this.load.spritesheet('loadBlocks', 'images/preloader_blocks.png',256, 256 );
+        this.load.image('loadBlocks', 'images/preloader_blocks.png' );
 
     },
 

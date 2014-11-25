@@ -27,7 +27,6 @@ var RightPad = (function () {
         game.physics.enable(this.sprite, Phaser.Physics.ARCADE);
         this.sprite.body.setSize(60, 160);
 
-
         this.sprite.body.collideWorldBounds = true;
         this.sprite.body.bounce = new Phaser.Point(0, 0.3);
         this.sprite.body.allowGravity = false;

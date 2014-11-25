@@ -33,7 +33,7 @@ BasicGame.Preloader.prototype = {
 
         //add Brief text
         this.ItemText = this.game.add.retroFont('kof97', 8, 8, Phaser.RetroFont.TEXT_SET1);
-        this.ItemText.setText("  STICKY PAD\n  LONGER PHALUM\n  HEALTH\n  F##K UP RIVAL CONTROL\n  MULTIBALL ", true, 0, 8, Phaser.RetroFont.ALIGN_LEFT);
+        this.ItemText.setText("  STICKY PAD\n  LONGER PHALUM\n  HEALTH\n  F##K UP CONTROL\n  MULTIBALL ", true, 0, 8, Phaser.RetroFont.ALIGN_LEFT);
         var j = this.game.add.image(this.game.world.centerX * 0.75, this.game.world.centerY * 0.75, this.ItemText);
         j.tint = 0xFF00FF;
         j.scale.setTo(2, 2);
@@ -56,7 +56,6 @@ BasicGame.Preloader.prototype = {
         i.anchor.set(0.5, 1);
 
         this.load.image('titlepage', 'images/title.png');
-        this.load.spritesheet('playButton', 'images/button_texture_atlas.png', 193, 71);
         this.load.spritesheet('Objs', 'images/Objetos.png',256, 256 );
 
         this.load.audio('Crush', ['audio/can-crush-1.mp3']);
@@ -68,7 +67,6 @@ BasicGame.Preloader.prototype = {
         this.load.audio('titleMusic', ['audio/midnight-ride-01a.mp3']);
 
 		//	+ lots of other required assets here
-
         this.load.image('Back1', 'images/fondo1.png' );
         this.load.image('Back3', 'images/fondo3.png' );
         this.load.spritesheet('sparks', 'images/sparks.png', 64, 64);

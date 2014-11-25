@@ -62,7 +62,21 @@ BasicGame.MainMenu.prototype = {
 
 	update: function () {
 		//	Do some nice funky main menu effect here
-	},
+        if ( this.input.keyboard.isDown(Phaser.Keyboard.ENTER) || this.input.keyboard.isDown(Phaser.Keyboard.SPACEBAR) )
+            this.startGame();
+
+        if ( this.input.keyboard.isDown(Phaser.Keyboard.S) || this.input.keyboard.isDown(Phaser.Keyboard.W) || this.input.keyboard.isDown(Phaser.Keyboard.A)|| this.input.keyboard.isDown(Phaser.Keyboard.D))
+        {
+            BasicGame.leftInputCode = 3;
+            this.leftInputButton.setFrames(2 +(4 * BasicGame.leftInputCode) , 1+(4 * BasicGame.leftInputCode), 0+(4 * BasicGame.leftInputCode), 2 +(4 * BasicGame.leftInputCode));
+        }
+
+        if ( this.input.keyboard.isDown(Phaser.Keyboard.DOWN) || this.input.keyboard.isDown(Phaser.Keyboard.UP) || this.input.keyboard.isDown(Phaser.Keyboard.LEFT)|| this.input.keyboard.isDown(Phaser.Keyboard.RIGHT))
+        {
+            BasicGame.rightInputCode = 2;
+            this.rightInputButton.setFrames(2 +(4 * BasicGame.rightInputCode) , 1+(4 * BasicGame.rightInputCode), 0+(4 * BasicGame.rightInputCode), 2 +(4 * BasicGame.rightInputCode));
+        }
+    },
 
     swapInputLeft: function ( pointer) {
 

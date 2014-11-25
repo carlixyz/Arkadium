@@ -152,7 +152,6 @@ BasicGame.Game.prototype = {
             this.healthLeft[k].anchor.setTo(0.5, 0);
             this.healthLeft[k].tint = 0xFF8888;
         }
-
     },
 
 	update: function () {
@@ -397,9 +396,10 @@ BasicGame.Game.prototype = {
 
     itemControl: function (pad)    {
         if (this.padRight.sprite == pad )
-            this.padLeft.setFuzzyControl(this.game);
-        else if(this.padLeft.sprite == pad )
             this.padRight.setFuzzyControl(this.game);
+        else if(this.padLeft.sprite == pad )
+            this.padLeft.setFuzzyControl(this.game);
+
 
     },
 

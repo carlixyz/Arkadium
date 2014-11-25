@@ -47,7 +47,6 @@ var Ball = (function () {
             this.released = true;
             this.launchSide = 0;
         }
-
     };
 
     Ball.prototype.setActive = function (value) {
